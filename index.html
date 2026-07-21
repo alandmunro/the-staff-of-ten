@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A six-part personal series on
+      building and governing a home AI staff with practical guardrails.">
+    <meta property="og:title" content="The Staff of Ten">
+    <meta property="og:description" content="A six-part personal series
+      on building and governing a home AI staff with practical
+      guardrails.">
+    <title>The Staff of Ten — a series on building an AI team at home</title>
+    <style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#4f46e5}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+.kicker,h1,h2,.byline,.about,.card,.tag{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.3rem;line-height:1.12;margin:.4rem 0 .8rem;letter-spacing:-.01em}
+.standfirst{font-size:1.16rem;color:var(--muted);margin:0 0 1.2rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2.2rem}
+p{margin:0 0 1.1rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.cards{display:grid;gap:.9rem;margin:2rem 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:1.05rem 1.2rem;color:var(--ink)}
+.card:hover{text-decoration:none;border-color:var(--muted);border-left-color:var(--accent)}
+.card .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card h2{font-size:1.12rem;margin:.25rem 0 .3rem;line-height:1.3}
+.card p{font-size:.92rem;color:var(--muted);margin:0}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+</style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="kicker">A six-part series</div>
+      <h1>The Staff of Ten</h1>
+      <p class="standfirst">By day I help lead video operations. At
+        home, I run ten AI agents — a rental business, a leashed
+        paper-trading bot, a house counsel, a bartender, and one agent
+        that belongs to my wife. This is how it works, and why you
+        should build your own.</p>
+      <div class="byline">Alan Munro · July 2026</div>
+      <p>Start here. Nobody was going to hand me an AI education, so I
+        built my own curriculum: a staff of specialized agents doing
+        real work — real bookings, simulated trading guardrails, real
+        inventories — with me as the manager. None of them took a job
+        from anyone; almost all of them do work that was never practical
+        for a human to do at all. If your not already building AI
+        projects for work, skip "hello world" and build something useful
+        for yourself. The skills come along for free.</p>
+      <p>For the technically curious: the chassis is <strong>OpenClaw</strong>,
+        a self-hosted agent framework on a Mac mini; the everyday brains
+        come through <strong>OpenRouter.ai</strong>'s model
+        marketplace; and the two desks that handle the most sensitive
+        categories use direct, named-model connections to <strong>Anthropic</strong>
+        and <strong>OpenAI</strong>. Part 1 shows the stack, part 5
+        explains the split.</p>
+      <div class="cards">
+        <a class="card" href="01-the-org-chart.html"
+          style="border-left-color:#4f46e5">
+          <span class="tag">Part 1</span>
+          <h2>I don't have an AI assistant. I run a staff of ten.</h2>
+          <p>Meet the team, the dashboard that keeps them honest, and
+            why the names are all on purpose.</p>
+        </a>
+        <a class="card" href="02-the-business-case.html"
+          style="border-left-color:#d94f43">
+          <span class="tag">Part 2</span>
+          <h2>The employee who runs my rental business while I sleep</h2>
+          <p>Frosty, the green/yellow/red constitution, and the
+            90-minute rule where silence never means yes.</p>
+        </a>
+        <a class="card" href="03-the-trust-test.html"
+          style="border-left-color:#0a8f5b">
+          <span class="tag">Part 3</span>
+          <h2>My trading bot was designed to lose. An AI caught it.</h2>
+          <p>Pierce's slow bleed, Fable's name, and the paper-trading
+            cage — kill switch included — that makes autonomy safer.</p>
+        </a>
+        <a class="card" href="04-the-boring-desks.html"
+          style="border-left-color:#c2620a">
+          <span class="tag">Part 4</span>
+          <h2>The photo trick, and the two agents that just remember
+            things</h2>
+          <p>Foster, Sullivan, and the ninety-odd-bottle inventory that
+            went from never-gonna-happen to one photo — then a human
+            spot-check.</p>
+        </a>
+        <a class="card" href="05-the-privacy-build.html"
+          style="border-left-color:#8c2f39">
+          <span class="tag">Part 5</span>
+          <h2>Two of my agents don't get to pick their own brains</h2>
+          <p>Why the desks that handle sensitive financial and legal
+            categories skip the model marketplace and talk straight to
+            Anthropic and OpenAI.</p>
+        </a>
+        <a class="card" href="06-the-tray.html"
+          style="border-left-color:#d6409f">
+          <span class="tag">Part 6 · Finale</span>
+          <h2>The tenth agent works for my wife</h2>
+          <p>Sparkles, the tray between two AI staffs under one roof,
+            and what building all ten actually taught me.</p>
+        </a>
+      </div>
+      <div class="notice"><strong>Personal project note.</strong> This
+        series describes a personal home-lab project, not my employer's
+        work or advice. Nothing here is financial, legal, health,
+        security, or investment advice. The trading example is
+        paper/simulated only.</div>
+      <div class="cta"><strong>Start with Part 1</strong> for the full
+        org chart, or jump to Part 2 if you want the practical business
+        case first. What would your first AI desk own?</div>
+      <div class="about"><strong>About this series.</strong> I help
+        manage and lead video operations for a living. None of this is
+        my day job, and I'm not a professional developer — every agent,
+        dashboard, and guardrail here was built at home, nights and
+        weekends, working with AI. That was the point: the best way I
+        know to get fluent in a technology is to build something real
+        with it.</div>
+    </div>
+  </body>
+</html>
