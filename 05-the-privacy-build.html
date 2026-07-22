@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Part 5 of The Staff of Ten: data
+      classification, model choice, and direct APIs for sensitive AI
+      work." name="description"/>
+<meta content="The Staff of Ten" property="og:title"/>
+<meta content="Part 5 of The Staff of Ten:
+      data classification, model choice, and direct APIs for sensitive
+      AI work." property="og:description"/>
+<title>The Staff of Ten — Part 5: Behind the Curtain</title>
+<style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#8c2f39}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box,.lanes{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.4rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:560px){.lanes{grid-template-columns:1fr}}
+.lane{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;font-size:.92rem;line-height:1.55}
+.lane h3{font-size:.98rem;margin:0 0 .4rem}
+.lane.pinned{border:2px solid var(--accent)}
+.lane .who{color:var(--muted);font-size:.8rem;margin-top:.6rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
+</style>
+<meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-5-cover.png" property="og:image"/><meta content="The Staff of Ten, Part 5 — Two of my agents do not get to pick their own brains." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-5-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" property="og:url"/><meta content="article" property="og:type"/><link href="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" name="twitter:url"/></head>
+<body>
+<div class="wrap">
+<div class="kicker">The Staff of Ten · Part 5 of 6</div>
+<h1>Two of my agents don't get to pick their own brains</h1>
+<p class="standfirst">Almost nobody asks which AI model is
+        actually reading their words. For my most sensitive financial
+        and legal work, I made it the first question.</p>
+<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten, Part 5 — Two of my agents do not get to pick their own brains." decoding="async" height="907" loading="eager" src="images/part-5-cover.png" width="1733"/></figure>
+<p>When most people use AI, they think about <em>what</em> it
+        answers. Almost nobody thinks about <em>who's</em> answering —
+        which company's model, running on whose servers, actually
+        processes the words you typed. You ask, an answer comes back,
+        and the machine behind the curtain is invisible and
+        interchangeable.</p>
+<p>For most of my staff, I let it stay interchangeable. My rental
+        agent, my home-ops manager, my bartender — they're routed
+        through <strong>OpenRouter.ai</strong>, a marketplace that puts
+        dozens of models behind one API and lets the cheapest capable
+        one win the job. In my fleet, that's usually a budget monster
+        like DeepSeek or MiniMax. When Sullivan is matching cocktails to
+        bottles, I genuinely don't care which model does the matching.
+        The stakes are a drink, and the marketplace is a great deal.</p>
+<p>But two of my agents touch things where I care very much who's
+        on the other side of the curtain. For those two, I took the
+        choice away from the system.</p>
+<h2>The two sensitive desks</h2>
+<p><strong>Warren</strong> is my retirement CFO. His whole job is
+        to reason over sensitive retirement inputs — accounts, balances,
+        spend targets, risk tolerance, and the planning assumptions that
+        decide whether work is optional someday. That is a different
+        category of financial privacy.</p>
+<p><strong>Ellis</strong> is house counsel. He reviews sensitive
+        agreements and terms I need to understand. His full name is
+        Ellis Gray - a naming joke I made once and now can't retire,
+        because it's still accurate every time he flags something that
+        isn't a clean yes or no.</p>
+<p>Sullivan knowing my bourbon shelf is not the same risk
+        category. Warren handling financial planning inputs and Ellis
+        reviewing agreements require a different level of trust. So they
+        get a different rule.</p>
+<figure>
+<div class="lanes">
+<div class="lane">
+<h3>Eight of ten: the OpenRouter pool</h3>
+            Routed through OpenRouter.ai to whatever capable model is
+            cheapest today — DeepSeek, MiniMax, whoever wins on price.
+            Great deal — for cocktails and calendars.
+            <div class="who">Frosty · Miles · Foster · Sullivan · Atlas
+              · Stone …</div>
+</div>
+<div class="lane pinned">
+<h3>Warren &amp; Ellis: direct lines</h3>
+            No marketplace, no middleman. Direct API connections to
+            Anthropic (Claude) and OpenAI (GPT) — named models I chose,
+            keys I hold, a bill with my name on it.
+            <div class="who">The two desks that handle sensitive
+              financial and legal categories.</div>
+</div>
+</div>
+<figcaption>Same staff, two supply chains — on purpose.</figcaption>
+</figure>
+<h2>It's a supply-chain decision</h2>
+<p>You already think this way in the physical world. You care who
+        has a key to your house, whose truck your furniture rides in,
+        which pharmacy fills your prescription. When the product touches
+        something sensitive, the identity of the vendor <em>is</em>
+        part of the product.</p>
+<p>An AI model is no different. For most tasks, the cheapest
+        reputable option is fine — take the deal. For the two agents
+        holding my most private data, the vendor isn't a detail to
+        optimize away. It's a boundary to hold. When Warren reasons
+        about my retirement, I know exactly which company's model is
+        doing the reasoning, because I chose it.</p>
+<p>Going direct also shortens the chain. Through a marketplace, my
+        words pass through the router's hands and then the model
+        provider's. Direct, there's one company, one agreement, one key.
+        For a cocktail question I'll take the extra hop and the
+        discount. For sensitive planning work, fewer hands is the
+        feature.</p>
+<h2>The wall isn't free</h2>
+<p>I'll be straight about the cost, because pretending security is
+        free is how people quietly abandon their own rules.</p>
+<p>Pinning Warren and Ellis to a short trusted list means giving
+        up the cheap, fast, always-available default the rest of the
+        fleet enjoys. The trusted models cost more per use. They're
+        occasionally busy when the bargain pool has capacity to spare.
+        And the wall takes maintenance — it's a constraint you have to
+        keep choosing. It would be trivially easy to "temporarily" route
+        Warren through the cheap pool on a busy afternoon and just…
+        never switch it back. The discipline is in not doing that.</p>
+<p>That's the trade, stated plainly: my two most sensitive agents
+        can be a bit slower and are more expensive than they need to be,
+        and in exchange I know exactly whose model is reading the
+        categories I care most about. I'll take that trade every time.</p>
+<h2>Same instinct, one layer down</h2>
+<p>The mindset doesn't stop at model choice. The whole system —
+        every agent, the dashboard, all of it — is designed for local
+        access rather than public exposure. Sensitive financial inputs,
+        legal material, health notes, and household logistics do not
+        belong on a casual public endpoint. That boundary is not a
+        preference I ask the agents to remember; it is an architectural
+        rule I make the system live inside.</p>
+<div class="box">
+<h3>The transferable lesson</h3>
+<p style="margin:0">This is the part of the home lab I'd carry
+          straight into any workplace conversation about AI: not every
+          task should run on the same brain, and for the sensitive ones
+          you should know and choose the brain. Companies are already
+          wrestling with this — frontier models are expensive, and the
+          instinct is to route everything toward whatever is the
+          cheapest as adoption grows. That instinct is right for most
+          tasks. It's wrong for the ones touching sensitive data, and
+          that's the distinction worth holding onto. Data classification
+          decides model choice, not convenience or cost. If a company
+          asked me to lead on AI tomorrow, this is the first policy I'd
+          write, and I got to stress-test it on my own sensitive
+          categories first.</p>
+</div>
+<p>One desk left. She isn't mine — she works for my wife, under my
+        wife's own login, and my agents have no application-level access
+        to her data. The finale is about the strangest and most human
+        piece of the whole system: how her people and my people get
+        anything done together.
+      </p>
+<div class="cta">Which AI tasks in your world deserve the cheapest
+        capable model, and which deserve a named, trusted supply chain?</div>
+<div class="notice"><strong>Personal project note.</strong> This
+        series describes a personal home-lab project, not my employer's
+        work or advice. Nothing here is financial, legal, health,
+        security, or investment advice. The trading example is
+        paper/simulated only.</div>
+<div class="about"><strong>About this series.</strong> I help
+        manage and lead video operations for a living. None of this is
+        my day job, and I'm not a professional developer — every agent,
+        dashboard, and guardrail here was built at home, nights and
+        weekends, working with AI. That was the point: the best way I
+        know to get fluent in a technology is to build something real
+        with it.</div>
+<nav class="series"><a href="04-the-boring-desks.html">← Part 4:
+          The photo trick</a><a href="06-the-tray.html">Part 6: Have
+          your people call my people →</a></nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Part 3 of The Staff of Ten: paper trading, AI audit,
+      and guardrails for simulated autonomous decisions." name="description"/>
+<meta content="The Staff of Ten" property="og:title"/>
+<meta content="Part 3 of The Staff of Ten: paper trading, AI audit,
+      and guardrails for simulated autonomous decisions." property="og:description"/>
+<title>The Staff of Ten — Part 3: The Trust Test</title>
+<style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#0a8f5b}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.4rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+svg{max-width:100%;height:auto;display:block}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
+</style>
+<meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-3-cover.png" property="og:image"/><meta content="The Staff of Ten, Part 3 — My trading bot was designed to lose. An AI caught it." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-3-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/03-the-trust-test.html" property="og:url"/><meta content="article" property="og:type"/><link href="https://alandmunro.github.io/the-staff-of-ten/03-the-trust-test.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/03-the-trust-test.html" name="twitter:url"/></head>
+<body>
+<div class="wrap">
+<div class="kicker">The Staff of Ten · Part 3 of 6</div>
+<h1>My trading bot was designed to lose. An AI caught it.</h1>
+<p class="standfirst">The story behind Fable's name, and the leash
+        I built before letting any agent near real money.</p>
+<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten, Part 3 — My trading bot was designed to lose. An AI caught it." decoding="async" height="907" loading="eager" src="images/part-3-cover.png" width="1733"/></figure>
+<p>Confession: my first trading agent was named Pierce, and Pierce
+        had a secret.</p>
+<p><strong>Important caveat before the story starts:</strong> this
+        is paper trading — simulated money, real market data, real order
+        mechanics, zero dollars at risk. The lesson is about guardrails
+        and governance, not investment advice.</p>
+<p>Pierce was a paper day-trading bot I'd assembled the way a lot
+        of people assemble their first one - borrowed strategy,
+        plausible-looking rules, decent-looking backtest. He traded
+        busily in simulation. He always seemed <em>almost</em>
+        profitable. And the account drifted down, slowly, day after day.</p>
+<p>So I did something that would have been impossible a couple of
+        years ago: I handed the entire codebase to one of the new
+        frontier AI models — Anthropic's Fable, a real, named model, not
+        an in-house nickname — and asked it to audit the strategy like a
+        skeptical quant. The verdict came back brutal and specific: <strong>this
+          system is structured to lose money slowly.</strong> Not
+        broken. Worse than broken — <em>working as designed</em>. The
+        combination of tiny edges, constant churn, and flattening
+        everything at the end of each day meant costs ate the wins by
+        construction. It was a machine for converting my patience into
+        fees, politely.</p>
+<p>Pierce retired that week. The replacement got rebuilt from the
+        ground up as a slower swing trader, and I named <em>it</em> —
+        my agent, not the model — <strong>Fable</strong> too, after the
+        model that busted its predecessor. From here on, "Fable" in this
+        piece means my trading agent, not Anthropic's model; I'm only
+        borrowing the name, the way you'd name a dog after someone you
+        admired. When an AI catched my bot committing malpractice, I
+        named successor for it's detective work. Pierce keeps a
+        headstone on my dashboard. We honor our fallen.</p>
+<p>That audit, by the way, is the single most repeatable trick in
+        this whole series. You don't need to be a quant to ask a
+        frontier model "review this strategy like you're trying to talk
+        me out of it." The capability was always the easy part. What I
+        want to talk about is the harder thing I built next: the leash.</p>
+<h2>First, exhale: it's paper</h2>
+<p>Fable trades a <strong>paper account</strong> — simulated
+        money, but real market data, real order mechanics, about a
+        hundred grand of play money, zero dollars at risk. That's the
+        foundation, not a footnote. Before Fable touches a real cent,
+        the bar is roughly <strong>150 simulated trades over 8–12
+          months</strong>. A bot that made money in one good month has
+        told me nothing. A bot that behaved sanely across 150 trades and
+        a couple of ugly stretches has told me something. The probation
+        is the point.</p>
+<h2>The cage</h2>
+<p>Here's what actually makes an autonomous trader safe to own,
+        and it has nothing to do with how smart it is. Fable's judgment
+        is boxed in on every side by rules it cannot argue with —
+        decisions I made once, in code, on a calm day.</p>
+<figure>
+<svg aria-label="Nested guardrails around a small trading
+          engine" role="img" viewbox="0 0 760 470" xmlns="http://www.w3.org/2000/svg">
+<g font-family="-apple-system,'Segoe UI',sans-serif">
+<rect fill="none" height="454" rx="16" stroke="#8c2f39" stroke-width="2.5" width="744" x="8" y="8"></rect>
+<text fill="#8c2f39" font-size="13" font-weight="700" x="28" y="36">COMPLIANCE WALL — restricted symbols: never traded.
+              ever.</text>
+<rect fill="none" height="346" rx="14" stroke="#c2620a" stroke-width="2" width="624" x="68" y="62"></rect>
+<text fill="#c2620a" font-size="12.5" font-weight="700" x="86" y="88">WEEKLY KILL SWITCH — down 4% on the week →
+              full halt until Monday</text>
+<rect fill="none" height="240" rx="12" stroke="#0369a1" stroke-width="2" width="504" x="128" y="114"></rect>
+<text fill="#0369a1" font-size="12" font-weight="700" x="146" y="140">MARKET FILTERS — healthy market only ·
+              never right before earnings</text>
+<rect fill="none" height="134" rx="10" stroke="#0a8f5b" stroke-width="2" width="384" x="188" y="166"></rect>
+<text fill="#0a8f5b" font-size="11.5" font-weight="700" x="206" y="192">PER-TRADE RULES — small fixed risk ·
+              position caps · automatic trailing stops</text>
+<rect fill="#ffffff" height="56" rx="8" stroke="#e3e1dc" width="236" x="262" y="216"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="380" y="240">THE "SMART" PART</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="380" y="258">(the engine that picks trades)</text>
+</g>
+</svg>
+<figcaption>The intelligence is the smallest box on purpose.</figcaption>
+</figure>
+<ul>
+<li><strong>Position size is fixed.</strong> Every trade risks
+          the same small fraction of the account — half a percent. Fable
+          can't bet big on an idea it loves. Conviction doesn't get a
+          bigger check.</li>
+<li><strong>Concentration is capped</strong> — and here's the
+          part I'm proudest of: the cap groups stocks by how they
+          actually move together, not by the tidy sector labels on
+          paper. Four mega-cap tech names that rise and fall as one
+          don't get to masquerade as a diversified basket. The system
+          knows they're one bet wearing four hats.</li>
+<li><strong>Losers get cut, winners run.</strong> Every position
+          gets a trailing stop the moment it opens. No "holding this
+          loser until it comes back." And no profit target either —
+          capping winners is how amateurs make sure the small losses
+          never get paid for.</li>
+<li><strong>It only plays in good weather.</strong> No new
+          positions unless the broad market is above its own trend line.
+          When the regime turns hostile, Fable stops looking for reasons
+          to buy.</li>
+<li><strong>It stays out of the way of surprises.</strong> No
+          entering a stock right before earnings. That's not a strategy,
+          it's a coin flip, and the rules forbid it.</li>
+</ul>
+<h2>The kill switch</h2>
+<p>Everything above governs individual simulated trades. This one
+        governs the agent itself: if Fable loses more than <strong>4%
+          in a single week, it halts</strong>. Not "gets more careful."
+        Halts, hands off the wheel, until the following Monday.</p>
+<p>I think this is the most important line in the whole system,
+        because it encodes something true about traders, human and
+        machine alike: a system having a bad week is exactly when it's
+        most dangerous to itself. That's when it revenge-trades, chases,
+        tries to win it back. So Fable isn't allowed to. And neither am
+        I, in the moment — the halt isn't a judgment call made while
+        losing. It was made months ago, on a calm day, by the version of
+        me I trust more.</p>
+<h2>The wall with my name on it</h2>
+<p>One more rule, and it's not about money. Certain symbols sit on
+        a <strong>hard no-auto-trade list</strong> written directly
+        into the engine. Fable can watch those tickers, read news about
+        them, weigh their sectors — but it cannot place an order in
+        them, either direction. One line of code, sitting under a
+        comment that names exactly why it exists.</p>
+<p>That line matters more than any simulated profit this system
+        will ever show. An autonomous trader that <em>could</em> touch
+        restricted symbols is not a feature; it is an avoidable
+        liability waiting for a bad coincidence. So it cannot. Not
+        "shouldn't." Not "is discouraged from." <em>Cannot.</em></p>
+<div class="box">
+<h3>The transferable lesson</h3>
+<p style="margin:0">Frosty (part 2) escalates every dollar
+          decision to a human. Fable makes them itself. The difference
+          isn't intelligence — it's that Fable's authority ships inside
+          a risk cap, a concentration limit, mechanical exits, a market
+          filter, a kill switch, and a compliance wall. Writing those
+          rules is just governance, in code. It's the same muscle as
+          writing policy at work — which is exactly why building this
+          taught me more about deploying AI responsibly than any vendor
+          deck I've sat through. The cage is what makes autonomy safe.
+          Build the cage first.</p>
+</div>
+<p>Next: the opposite end of the staff — two agents that will
+        never make or lose me a dollar, and the photo trick that made me
+        a believer.<br/>
+</p>
+<p>Where would you put the hard-coded cage before letting AI act
+        autonomously?</p>
+<div class="notice"><strong>Personal project note.</strong> This
+        series describes a personal home-lab project, not my employer's
+        work or advice. Nothing here is financial, legal, health,
+        security, or investment advice. The trading example is
+        paper/simulated only.</div>
+<div class="about"><strong>About this series.</strong> I help
+        manage and lead video operations for a living. None of this is
+        my day job, and I'm not a professional developer — every agent,
+        dashboard, and guardrail here was built at home, nights and
+        weekends, working with AI. That was the point: the best way I
+        know to get fluent in a technology is to build something real
+        with it.</div>
+<nav class="series"><a href="02-the-business-case.html">← Part 2:
+          The business</a><a href="04-the-boring-desks.html">Part 4: The
+          photo trick →</a></nav>
+</div>
+</body>
+</html>

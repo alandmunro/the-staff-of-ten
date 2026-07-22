@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Part 6 of The Staff of Ten: how two private AI staffs
+      coordinate through a shared tray without shared access." name="description"/>
+<meta content="The tenth agent works for my wife — The Staff of Ten, Part 6" property="og:title"/>
+<meta content="Part 6 of The Staff of Ten: how two private AI staffs
+      coordinate through a shared tray without shared access." property="og:description"/>
+<title>The Staff of Ten — Part 6: Have Your People Call My People</title>
+<style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#d6409f}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.45rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+svg{max-width:100%;height:auto;display:block}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
+</style>
+<meta content="article" property="og:type"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-6-cover.png" property="og:image"/><meta content="The Staff of Ten — Part 6 cover: The tenth agent works for my wife" property="og:image:alt"/><meta content="1732" property="og:image:width"/><meta content="908" property="og:image:height"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-6-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/06-the-tray.html" property="og:url"/><link href="https://alandmunro.github.io/the-staff-of-ten/06-the-tray.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/06-the-tray.html" name="twitter:url"/></head>
+<body>
+<div class="wrap">
+<div class="kicker">The Staff of Ten · Part 6 of 6 - Finale</div>
+<h1>The tenth agent works for my wife</h1>
+<p class="standfirst">One roof, separate logins, two AI staffs,
+        deliberate boundaries - and the oldest office trick in the book.</p>
+<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten Part 6 cover — The tenth agent works for my wife" decoding="async" height="908" loading="eager" src="images/part-6-cover.png" width="1732"/></figure>
+<p>Nine of my ten agents are mine. The last one isn't.</p>
+<p><strong>Sparkles</strong> is my wife's chief of staff. She runs
+        in her own OpenClaw setup - under my wife's own login, with
+        permissions to match - managing my wife's calendar, her tasks,
+        her data. Shared here with her permission, because the boundary
+        is the point. Of all ten names, hers took the least thought - I
+        just described her, and typed what came out.</p>
+<p>And here's the rule that makes her the most interesting agent
+        in the series: <strong>my agents have no application-level
+          access to her data.</strong> Not "are politely asked not to."
+        They run under separate permissions, and the operating system
+        decides who can read what. That's not a limitation I'm working
+        around - it's the design.</p>
+<p>Which creates a wonderfully ordinary problem. We live in the
+        same house. Our agents live under separate logins. We share a
+        roof, a mortgage, and a calendar's worth of logistics - a dinner
+        reservation, a pickup, a "can you add this to your calendar"
+        that crosses between us a dozen times a week. If each of us has
+        an AI staff, and neither staff is allowed in the other's data,
+        how does anything get coordinated?</p>
+<p>The answer is the oldest move in office life: <em>have your
+          people call my people.</em></p>
+<h2>Two chiefs of staff, one tray</h2>
+<figure>
+<svg aria-label="Two chiefs of staff on either side of a
+          boundary passing a note through a shared tray" role="img" viewbox="0 0 820 340" xmlns="http://www.w3.org/2000/svg">
+<g font-family="-apple-system,'Segoe UI',sans-serif">
+<line stroke="#69707a" stroke-dasharray="6 5" stroke-width="1.5" x1="410" x2="410" y1="30" y2="300"></line>
+<rect fill="#ffffff" height="190" rx="14" stroke="#e3e1dc" stroke-width="2" width="330" x="30" y="54"></rect>
+<rect fill="#4f46e5" height="6" rx="3" width="330" x="30" y="54"></rect>
+<text fill="#69707a" font-size="12.5" font-weight="700" text-anchor="middle" x="195" y="88">MY SIDE - nine agents</text>
+<text fill="#20242a" font-size="13.5" font-weight="700" text-anchor="middle" x="195" y="118">🎖️ Miles, my chief
+              of staff</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="195" y="150">writes a note:</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="195" y="170">"dinner Friday, 6:30 -</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="195" y="186">please add it to her calendar"</text>
+<rect fill="#ffffff" height="190" rx="14" stroke="#e3e1dc" stroke-width="2" width="330" x="460" y="54"></rect>
+<rect fill="#d6409f" height="6" rx="3" width="330" x="460" y="54"></rect>
+<text fill="#69707a" font-size="12.5" font-weight="700" text-anchor="middle" x="625" y="88">HER SIDE - her staff,
+              her rules</text>
+<text fill="#20242a" font-size="13.5" font-weight="700" text-anchor="middle" x="625" y="118">✨ Sparkles, her chief
+              of staff</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="625" y="150">picks it up on her side,</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="625" y="170">handles it under her login,</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="625" y="186">by my wife's rules</text>
+<line stroke="#d6409f" stroke-dasharray="4 5" stroke-width="2" x1="360" x2="394" y1="196" y2="196"></line>
+<line stroke="#d6409f" stroke-dasharray="4 5" stroke-width="2" x1="426" x2="452" y1="196" y2="196"></line>
+<polygon fill="#d6409f" points="452,191 462,196 452,201"></polygon>
+<text font-size="15" text-anchor="middle" x="410" y="202">✉️</text>
+<path d="M373 222 v 28 h 74 v -28" fill="none" stroke="#20242a" stroke-width="2.5"></path>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="410" y="272">the tray</text>
+<text fill="#69707a" font-size="12.5" font-weight="700" text-anchor="middle" x="410" y="326">Separate logins. No
+              keys - just a tray.</text>
+</g>
+</svg>
+<figcaption>The entire integration between two AI staffs, drawn
+          to emotional scale.</figcaption>
+</figure>
+<p>Miles is my chief of staff. Sparkles is hers. They have never
+        met. They run under different logins, and neither side has
+        application-level access to the other's files. What they share
+        is exactly one thing: a small drop-tray both sides can reach -
+        the digital version of interoffice mail, or the note left on the
+        kitchen counter.</p>
+<p>When I say "put dinner Friday on my wife's calendar," Miles
+        doesn't reach for her calendar - he <em>can't see</em> her
+        calendar. He writes a short structured note (the event, the
+        date, the time, what it's for) and drops it in the tray. On her
+        side, Sparkles picks it up and handles it, under her login, by
+        whatever rules my wife has given her. My side does not read her
+        calendar; it only knows what it asked to send. Her side only
+        receives the note I meant to share.</p>
+<p>We share a house. Our agents keep separate logins. Our staffs
+        share a tray.</p>
+<h2>Privacy the way a marriage already does it</h2>
+<p>Here's why I like this design so much: it isn't a new idea.
+        It's how a healthy marriage already works. We live under one
+        roof and we still don't go through each other's phones. You
+        don't snoop. You just tell each other things.</p>
+<p>The agents inherit exactly that boundary - except theirs is
+        enforced by architecture instead of trust. Miles isn't discreet
+        about my wife's data because he's well-behaved. He's discreet
+        because her files, under her login, are not exposed to anything
+        running under mine. That's not exotic AI safety - it's
+        operating-system permissions, a wall that's been doing this job
+        reliably since before the web existed. The tray does the work
+        that good intentions can't be relied on to do. If I ever ship a
+        bug, if a model ever has a bad day, the blast radius on her side
+        of the line is the tray, containing notes we meant to send
+        anyway.</p>
+<h2>The honest part: trays drop things</h2>
+<p>This series has tried to be honest about every desk, so here it
+        is: a tray is not a phone call. Most of the time a note lands
+        and gets handled. Sometimes it doesn't - the office equivalent
+        of the memo that slides under a coffee mug and sits there while
+        both sides assume it was handled. There's no built-in tap on the
+        shoulder confirming receipt. Making the hand-off reliable -
+        every note acted on, every sender hearing back - is live
+        engineering, and it's the thing I'm actively improving about
+        this last, strangest desk.</p>
+<p>Honestly, I'm fond of the imperfection. Two assistants who have
+        never met, coordinating a married couple's logistics by leaving
+        each other carefully worded notes - and occasionally losing one.
+        Real assistants have run busy couples exactly this way forever.
+        It turns out "have your people call my people" was solid
+        distributed-systems design all along.</p>
+<h2>What the whole staff added up to</h2>
+<p>End of the tour - and a quick roll call before I close it out.
+        This series only gave five desks a full chapter. Atlas (travel)
+        and Stone (health) never got one; they run quietly in the
+        background, doing smaller, steadier jobs that didn't need six
+        hundred words to explain. That's true of most of any real staff
+        - most desks are unremarkable most of the time, and unremarkable
+        is exactly what you want from infrastructure. Let me tell you
+        what I actually got out of building the whole thing, because it
+        wasn't the agents.</p>
+<ul>
+<li><strong>The business agent</strong> taught me the safest
+          default is <em>not yet</em> - silence should never mean
+          consent.</li>
+<li><strong>The trading agent</strong> taught me intelligence
+          isn't what makes autonomy safe. The cage is. Build the cage
+          first.</li>
+<li><strong>The boring agents</strong> taught me the real unlock
+          is offloading memory, not intelligence - and that AI makes
+          whole categories of useful work practical that simply never
+          got done before. Nobody was ever going to hand-inventory
+          ninety-odd bottles. Now it starts with a photo and ends with a
+          spot-check.</li>
+<li><strong>The sensitive agents</strong> taught me the model
+          behind the curtain is part of the product, and for what
+          matters most you choose it on purpose.</li>
+<li><strong>And Sparkles</strong> taught me the strongest
+          privacy isn't a promise to be careful. It's having no
+          application-level path into someone else's data - just a tray
+          for the things you meant to share.</li>
+</ul>
+<p>Read that list again and notice what it isn't. It isn't about
+        AI taking anyone's job. Nothing in my house got automated out of
+        existence - a bunch of things that never happened at all started
+        happening, and I got more capable.  That's the version of
+        this technology I want people excited about: not novel for its
+        own sake, just boring, useful, and built exactly the way I
+        wanted it.</p>
+<div class="box">
+<h3>The real deliverable</h3>
+<p style="margin:0">I help lead video operations for a living.
+          Nobody assigned me any of this. That's the entire point: <strong>if
+            your company can't or won't hand you an AI project, you
+            don't need one.</strong> Pick a real problem in your own
+          life. Skip "hello world" - build something you'll actually
+          use, because you'll only push through the boring parts for a
+          tool you want to exist. Somewhere between the booking rules
+          and the kill switch and the tray, I stopped being a guy who
+          "uses AI" and became someone who can scope it, govern it, and
+          ship with it. Those skills came from the kitchen table, they
+          transfer directly to the day job - and this technology is
+          where I'm pointing my career next.</p>
+</div>
+<p>I don't have an AI assistant. I have a staff of ten - nine of
+        mine and one across the hall - a dashboard that tells me the
+        truth about them, and a new set of skills nobody had to give me
+        permission to learn.</p>
+<p><em>- end of series -<br/>
+</em></p>
+<div class="notice"><strong>Personal project note.</strong> This
+        series describes a personal home-lab project, not my employer's
+        work or advice. Nothing here is financial, legal, health,
+        security, or investment advice. The trading example is
+        paper/simulated only.</div>
+<div class="cta">Where would a simple handoff tray beat shared
+        access in your own AI design?</div>
+<div class="about"><strong>About this series.</strong> I help
+        manage and lead video operations for a living. None of this is
+        my day job, and I'm not a professional developer - every agent,
+        dashboard, and guardrail here was built at home, nights and
+        weekends, working with AI. That was the point: the best way I
+        know to get fluent in a technology is to build something real
+        with it.</div>
+<nav class="series"><a href="05-the-privacy-build.html">← Part 5:
+          Behind the curtain</a><a href="index.html">Series home →</a></nav>
+</div>
+</body>
+</html>

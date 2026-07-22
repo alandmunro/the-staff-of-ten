@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Part 4 of The Staff of Ten: the photo inventory trick
+      and the practical value of AI memory." name="description"/>
+<meta content="The Staff of Ten" property="og:title"/>
+<meta content="Part 4 of The Staff of Ten: the photo inventory trick
+      and the practical value of AI memory." property="og:description"/>
+<title>The Staff of Ten — Part 4: The Photo Trick</title>
+<style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#c2620a}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.4rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+svg{max-width:100%;height:auto;display:block}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
+</style>
+<meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-4-cover.png" property="og:image"/><meta content="The Staff of Ten, Part 4 — The photo trick and the two agents that just remember things." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-4-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/04-the-boring-desks.html" property="og:url"/><meta content="article" property="og:type"/><link href="https://alandmunro.github.io/the-staff-of-ten/04-the-boring-desks.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/04-the-boring-desks.html" name="twitter:url"/></head>
+<body>
+<div class="wrap">
+<div class="kicker">The Staff of Ten · Part 4 of 6</div>
+<h1>The photo trick, and the two agents that just remember things</h1>
+<p class="standfirst">Nobody was ever going to inventory my
+        embarrassingly large collection of liquor into a spreadsheet by
+        hand. That's the point.</p>
+<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten, Part 4 — The photo trick and the two agents that just remember things." decoding="async" height="907" loading="eager" src="images/part-4-cover.png" width="1733"/></figure>
+<p>Be honest. You have a project like my liquor cabinet. Some
+        corner of your life — a shelf, a garage, a filing drawer — that
+        you've been meaning to "get organized" for years, and never
+        will, because cataloging bottles into a spreadsheet by hand is a
+        miserable job with a payoff that never quite justifies the
+        evening.</p>
+<p>Here's what that job looks like now: I took photos of the
+        shelves and sent them to the AI. It read the labels, sorted
+        everything into categories, and handed back a structured
+        inventory. Practically overnight.</p>
+<figure>
+<svg aria-label="A photo of bottles becoming a structured
+          inventory list" role="img" viewbox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+<g font-family="-apple-system,'Segoe UI',sans-serif">
+<rect fill="#ffffff" height="248" rx="18" stroke="#e3e1dc" stroke-width="2" width="185" x="40" y="26"></rect>
+<rect fill="#1a1e25" height="196" rx="8" width="157" x="54" y="46"></rect>
+<line stroke="#2c3038" stroke-width="3" x1="54" x2="211" y1="112" y2="112"></line>
+<line stroke="#2c3038" stroke-width="3" x1="54" x2="211" y1="178" y2="178"></line>
+<g fill="#8a93a0">
+<rect height="40" rx="2" width="13" x="66" y="72"></rect><rect height="12" width="5" x="70" y="62"></rect>
+<rect height="32" rx="2" width="13" x="88" y="80"></rect><rect height="12" width="5" x="92" y="70"></rect>
+<rect height="46" rx="2" width="13" x="110" y="66"></rect><rect height="12" width="5" x="114" y="56"></rect>
+<rect height="36" rx="2" width="13" x="132" y="76"></rect><rect height="12" width="5" x="136" y="66"></rect>
+<rect height="42" rx="2" width="13" x="156" y="70"></rect><rect height="12" width="5" x="160" y="60"></rect>
+<rect height="30" rx="2" width="13" x="178" y="82"></rect><rect height="12" width="5" x="182" y="72"></rect>
+<rect height="38" rx="2" width="13" x="66" y="140"></rect><rect height="12" width="5" x="70" y="130"></rect>
+<rect height="46" rx="2" width="13" x="90" y="132"></rect><rect height="12" width="5" x="94" y="122"></rect>
+<rect height="32" rx="2" width="13" x="114" y="146"></rect><rect height="12" width="5" x="118" y="136"></rect>
+<rect height="40" rx="2" width="13" x="138" y="138"></rect><rect height="12" width="5" x="142" y="128"></rect>
+<rect height="34" rx="2" width="13" x="162" y="144"></rect><rect height="12" width="5" x="166" y="134"></rect>
+<rect height="36" rx="2" width="13" x="70" y="206"></rect><rect height="12" width="5" x="74" y="196"></rect>
+<rect height="42" rx="2" width="13" x="96" y="200"></rect><rect height="12" width="5" x="100" y="190"></rect>
+<rect height="32" rx="2" width="13" x="122" y="210"></rect><rect height="12" width="5" x="126" y="200"></rect>
+<rect height="38" rx="2" width="13" x="148" y="204"></rect><rect height="12" width="5" x="152" y="194"></rect>
+</g>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="132" y="266">one photo per shelf</text>
+<text font-size="22" text-anchor="middle" x="285" y="140">→</text>
+<text fill="#c2620a" font-size="12" font-weight="700" text-anchor="middle" x="285" y="166">✨ AI reads it</text>
+<rect fill="#ffffff" height="232" rx="12" stroke="#e3e1dc" stroke-width="2" width="370" x="350" y="34"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" x="372" y="66">THE BAR — structured inventory</text>
+<g fill="#20242a" font-size="12.5">
+<text x="372" y="96">Bourbon</text><rect fill="#c2620a" height="10" rx="5" width="132" x="490" y="86"></rect><text fill="#69707a" x="632" y="96">11</text>
+<text x="372" y="122">Scotch</text><rect fill="#c2620a" height="10" opacity=".85" rx="5" width="108" x="490" y="112"></rect><text fill="#69707a" x="608" y="122">9</text>
+<text x="372" y="148">Rye</text><rect fill="#c2620a" height="10" opacity=".7" rx="5" width="72" x="490" y="138"></rect><text fill="#69707a" x="572" y="148">6</text>
+<text x="372" y="174">Gin</text><rect fill="#c2620a" height="10" opacity=".6" rx="5" width="60" x="490" y="164"></rect><text fill="#69707a" x="560" y="174">5</text>
+<text x="372" y="200">Amari &amp; liqueurs</text><rect fill="#c2620a" height="10" opacity=".5" rx="5" width="204" x="490" y="190"></rect><text fill="#69707a" x="704" y="200">17</text>
+<text x="372" y="226">…and so on</text>
+</g>
+<text fill="#69707a" font-size="11" x="372" y="252">categorized
+              · searchable · kept current</text>
+</g>
+</svg>
+<figcaption>Illustrative numbers. The real list is longer, and
+          yes, bourbon gets its own category. We are not animals.</figcaption>
+</figure>
+<p>The first pass still gets spot-checked — AI can misread a label
+        or invent confidence it has not earned — but the difference is
+        that I am correcting a draft instead of starting from zero.</p>
+<p>That's the theme of this piece. The last two parts were about
+        drama — a business, a trading account. These two agents will
+        never make me a dollar or lose me one, and they're the ones I'd
+        give up last, because they attack the real problem of adult
+        life: not intelligence, <strong>memory</strong>. And they do
+        jobs that weren't hard before AI — they were simply <em>never
+          going to happen</em>. That's the unlock that gets me excited
+        about this technology. Making the impractical practical.</p>
+<h2>Sullivan, behind the bar</h2>
+<p>The bottle inventory feeds Sullivan — the roster's one
+        unapologetically indulgent name, because a home bar should have
+        a bartender, not a "beverage-inventory module." He knows the
+        ninety-odd bottles on my shelves and about eighty cocktail
+        recipes, and the trick is the intersection: the question a home
+        bar actually poses on a Friday night isn't "how do I make a
+        Negroni." It's <em>"what can I make right now, with what's
+          open, without a store run?"</em> That's a matching problem
+        across two lists, and humans rarely do well by memory.</p>
+<p>Sullivan just answers. What's makeable tonight. What I'm one
+        bottle away from. Which bottle to buy next to unlock the most
+        new drinks. Which of the fourteen low-stock bottles actually
+        matter. He even keeps the taxonomy honest — bourbon is not
+        "whiskey," rye and Scotch and Irish each stand on their own —
+        because if you're going to build the nerdy tool, build it right.</p>
+<p>Is this a serious use of AI? No. It's a serious demonstration
+        of the idea underneath the whole staff: an agent holding a
+        real-world inventory and answering the practical question you
+        actually have, instantly, without you doing the tedious
+        cross-referencing. The bar is just the friendliest possible
+        proof.</p>
+<h2>Foster, running the house</h2>
+<p>Now the serious version. A house is a small business that
+        generates no revenue and constant liabilities, and it runs on
+        facts nobody can keep in their head. What's the model number?
+        When was the furnace serviced? Who was that good electrician? Is
+        the hot tub due? Which aging system is about to become an
+        expensive surprise?</p>
+<p>Foster holds all of it, and the name still makes me laugh more
+        than it should: Foster Wright, because he's meant to foster
+        things — and run them right. It's a lot of pun for one home-ops
+        desk to carry, and it carries it fine.</p>
+<p>On his board right now: a home inventory worth tracking
+        big-ticket items, freshly audited and categorized the way an
+        insurance claim would want it. A rolodex of two dozen
+        contractors — the people you scramble to re-find at the worst
+        moment, now in one place with what they did and what they
+        charged. A maintenance cadence that surfaces the small recurring
+        stuff before it lapses: fertilize the yard, add softener salt,
+        check the hot-tub chemicals.</p>
+<p>And my favorite thing on the board, because it's the thing
+        humans never do in time: Foster is tracking that my two AC
+        condensers are old enough to plan for replacement, which means
+        the smart move is budgeting for replacement over the next few
+        years instead of discovering the problem in a heat wave with an
+        emergency markup. That's not a reminder. That's <em>foresight
+          about a physical asset</em> — the kind you usually only get
+        after the failure teaches it to you.</p>
+<div class="box">
+<h3>Why the boring desks matter most</h3>
+<p style="margin:0">Everyone demos AI on the exciting stuff. But
+          what actually wears people down is the cognitive load of the
+          mundane — the hundred small facts about your house, your
+          stuff, your shelf, that you're silently responsible for. You
+          carry them as background anxiety and only notice the weight
+          when something drops. Foster and Sullivan don't think for me.
+          They <em>remember</em> for me. It turns out offloading
+          memory, not intelligence, is what makes a day lighter.</p>
+</div>
+<p>Next: I've been saying "the AI" like all ten agents share one
+        brain. They don't - and for the two desks that handle the most
+        sensitive financial and legal categories, <em>which</em> brain
+        answers was a decision I made very deliberately.
+      </p>
+<div class="cta">What annoying inventory or memory job would you
+        finally do if the first draft came from a photo?</div>
+<div class="notice"><strong>Personal project note.</strong> This
+        series describes a personal home-lab project, not my employer's
+        work or advice. Nothing here is financial, legal, health,
+        security, or investment advice. The trading example is
+        paper/simulated only.</div>
+<div class="about"><strong>About this series.</strong> I help
+        manage and lead video operations for a living. None of this is
+        my day job, and I'm not a professional developer — every agent,
+        dashboard, and guardrail here was built at home, nights and
+        weekends, working with AI. That was the point: the best way I
+        know to get fluent in a technology is to build something real
+        with it.</div>
+<nav class="series"><a href="03-the-trust-test.html">← Part 3: The
+          trust test</a><a href="05-the-privacy-build.html">Part 5:
+          Behind the curtain →</a></nav>
+</div>
+</body>
+</html>

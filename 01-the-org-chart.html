@@ -1,17 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="Part 1 of The Staff of Ten: the org chart, dashboard,
-      and management model behind a home AI staff." name="description">
-    <meta content="The Staff of Ten" property="og:title">
-    <meta content="Part 1 of The Staff of Ten: the org chart, dashboard,
-      and management model behind a home AI staff."
-      property="og:description">
-    <title>The Staff of Ten — Part 1: The Org Chart</title>
-    <style>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Part 1 of The Staff of Ten: the org chart, dashboard,
+      and management model behind a home AI staff." name="description"/>
+<meta content="The Staff of Ten" property="og:title"/>
+<meta content="Part 1 of The Staff of Ten: the org chart, dashboard,
+      and management model behind a home AI staff." property="og:description"/>
+<title>The Staff of Ten — Part 1: The Org Chart</title>
+<style>
 :root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#4f46e5}
 @media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
 *{box-sizing:border-box}
@@ -50,27 +50,31 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
 .notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
 .cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
 @media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
 </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <div class="kicker">The Staff of Ten · Part 1 of 6</div>
-      <h1>I don't have an AI assistant. I run a staff of ten.</h1>
-      <p class="standfirst">Meet the team, the dashboard that keeps them
+<meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-1-cover.png" property="og:image"/><meta content="The Staff of Ten, Part 1 — I do not have an AI assistant. I run a staff of ten." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-1-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/01-the-org-chart.html" property="og:url"/><meta content="article" property="og:type"/><link href="https://alandmunro.github.io/the-staff-of-ten/01-the-org-chart.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/01-the-org-chart.html" name="twitter:url"/></head>
+<body>
+<div class="wrap">
+<div class="kicker">The Staff of Ten · Part 1 of 6</div>
+<h1>I don't have an AI assistant. I run a staff of ten.</h1>
+<p class="standfirst">Meet the team, the dashboard that keeps them
         honest, and why a video-operations guy built any of this in the
         first place.</p>
-      <div class="byline">Alan Munro · July 2026</div>
-      <p>By day I help manage and lead video operations for a large
+<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten, Part 1 — I do not have an AI assistant. I run a staff of ten." decoding="async" height="907" loading="eager" src="images/part-1-cover.png" width="1733"/></figure>
+<p>By day I help manage and lead video operations for a large
         media company - alongside a lot of talented folks who make it
         work. I'm not a software engineer. AI is not in my job
         description.</p>
-      <p>That's exactly why I built what I'm about to show you.</p>
-      <p>Everybody I know "uses AI" the same way: one chat window, ask
+<p>That's exactly why I built what I'm about to show you.</p>
+<p>Everybody I know "uses AI" the same way: one chat window, ask
         it something, close the tab. Useful, but it's a vending machine,
         it's google, not a coworker. It has no beat, no memory of
         yesterday, and no way for you to check whether it's actually
         doing its job.</p>
-      <p>What I have instead is a <strong>staff</strong>. Ten
+<p>What I have instead is a <strong>staff</strong>. Ten
         specialized agents, each with a name, a job, and standing
         instructions. One runs my short-term-rental business. One
         paper-trades a simulated brokerage account under hard rules. One
@@ -78,341 +82,275 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         me to open a chat window - they run on their own schedules,
         dozens of scheduled jobs between them, and they report to a
         single dashboard I can pull up on my phone.</p>
-      <p>Before the tour, here's the point of the whole series, up
+<p>Before the tour, here's the point of the whole series, up
         front: <strong>nobody was going to hand me an AI education.</strong>
         If you're waiting for your company to give you an AI project,
         you might wait a long time. You don't need permission to learn
         this technology. You need a project you actually care about.
         Everything below was built at home, nights and weekends, in
         partnership with AI. The skills came along for free.</p>
-      <h2>The org chart</h2>
-      <figure>
-        <svg aria-label="Org chart of ten AI agents reporting to one
-          dashboard, with Sparkles on my wife's separate side"
-          role="img" viewBox="0 0 900 650"
-          xmlns="http://www.w3.org/2000/svg">
-          <g font-family="-apple-system,'Segoe UI',sans-serif">
-            <rect fill="#ffffff" height="60" rx="12" stroke="#e3e1dc"
-              width="240" x="330" y="14"></rect>
-            <rect fill="#4f46e5" height="6" rx="3" width="240" x="330"
-              y="14"></rect>
-            <text fill="#20242a" font-size="15" font-weight="700"
-              text-anchor="middle" x="450" y="44">THE BOARD</text>
-            <text fill="#69707a" font-size="11" text-anchor="middle"
-              x="450" y="62">every agent reports here</text>
-            <g stroke="#e3e1dc" stroke-width="2">
-              <line x1="450" x2="450" y1="74" y2="100"></line>
-              <line x1="16" x2="884" y1="100" y2="100"></line>
-              <line x1="114" x2="114" y1="100" y2="126"></line><line
-                x1="282" x2="282" y1="100" y2="126"></line><line
-                x1="450" x2="450" y1="100" y2="126"></line><line
-                x1="618" x2="618" y1="100" y2="126"></line><line
-                x1="786" x2="786" y1="100" y2="126"></line>
-              <line x1="16" x2="16" y1="100" y2="296"></line><line
-                x1="884" x2="884" y1="100" y2="296"></line>
-              <line x1="16" x2="884" y1="296" y2="296"></line>
-              <line x1="165" x2="165" y1="296" y2="322"></line><line
-                x1="355" x2="355" y1="296" y2="322"></line><line
-                x1="545" x2="545" y1="296" y2="322"></line><line
-                x1="735" x2="735" y1="296" y2="322"></line> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="156" x="36" y="126"></rect><rect fill="#d94f43"
-                height="5" rx="2.5" width="156" x="36" y="126"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="114" y="156">🦩 Frosty</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="114" y="176">runs the rental</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="114" y="192">business</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="156" x="204" y="126"></rect><rect fill="#0a8f5b"
-                height="5" rx="2.5" width="156" x="204" y="126"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="282" y="156">📈 Fable</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="282" y="176">trades (paper)</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="282" y="192">under hard rules</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="156" x="372" y="126"></rect><rect fill="#8c2f39"
-                height="5" rx="2.5" width="156" x="372" y="126"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="450" y="156">📊 Warren</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="450" y="176">retirement CFO</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="156" x="540" y="126"></rect><rect fill="#8c2f39"
-                height="5" rx="2.5" width="156" x="540" y="126"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="618" y="156">⚖️ Ellis</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="618" y="176">house counsel</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="156" x="708" y="126"></rect><rect fill="#0d9488"
-                height="5" rx="2.5" width="156" x="708" y="126"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="786" y="156">🩺 Stone</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="786" y="176">health desk</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="170" x="80" y="322"></rect><rect fill="#4f46e5"
-                height="5" rx="2.5" width="170" x="80" y="322"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="165" y="352">🎖️ Miles</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="165" y="372">chief of staff</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="170" x="270" y="322"></rect><rect fill="#c2620a"
-                height="5" rx="2.5" width="170" x="270" y="322"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="355" y="352">🔧 Foster</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="355" y="372">home operations</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="170" x="460" y="322"></rect><rect fill="#0369a1"
-                height="5" rx="2.5" width="170" x="460" y="322"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="545" y="352">🌍 Atlas</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="545" y="372">travel desk</text> </g>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="170" x="650" y="322"></rect><rect fill="#a05a2c"
-                height="5" rx="2.5" width="170" x="650" y="322"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="735" y="352">🍸 Sullivan</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="735" y="372">runs the bar</text> </g>
-            <line stroke="#69707a" stroke-dasharray="6 5"
-              stroke-width="1.5" x1="575" x2="575" y1="448" y2="635"></line>
-            <text fill="#69707a" font-size="11" font-weight="700"
-              text-anchor="end" x="560" y="470">MY SIDE</text>
-            <text fill="#69707a" font-size="11" font-weight="700"
-              text-anchor="start" x="590" y="470">HER SIDE</text>
-            <path d="M165 414 V 546 H 630" fill="none" stroke="#69707a"
-              stroke-dasharray="3 5" stroke-width="1.5"></path>
-            <rect fill="#f7f6f3" height="24" stroke="#e3e1dc" width="16"
-              x="567" y="534"></rect>
-            <text font-size="11" text-anchor="middle" x="575" y="551">✉</text>
-            <text fill="#69707a" font-size="10.5" text-anchor="middle"
-              x="330" y="533">structured notes only — no direct access</text>
-            <g>
-              <rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc"
-                width="180" x="640" y="500"></rect><rect fill="#d6409f"
-                height="5" rx="2.5" width="180" x="640" y="500"></rect>
-              <text fill="#20242a" font-size="13" font-weight="700"
-                text-anchor="middle" x="730" y="530">✨ Sparkles</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="730" y="550">my wife's chief of staff</text>
-              <text fill="#69707a" font-size="11" text-anchor="middle"
-                x="730" y="566">her login, her rules</text> </g>
-            <g opacity="0.75">
-              <rect fill="#ffffff" height="54" rx="8" stroke="#e3e1dc"
-                stroke-dasharray="4 3" width="250" x="40" y="566"></rect>
-              <text fill="#69707a" font-size="11.5" text-anchor="middle"
-                x="165" y="589">🪦 Pierce — the first trader</text>
-              <text fill="#69707a" font-size="10.5" text-anchor="middle"
-                x="165" y="606">retired · replaced by Fable (part 3)</text>
-            </g> </g> </svg> <figcaption>The staff. Nine agents
+<h2>The org chart</h2>
+<figure>
+<svg aria-label="Org chart of ten AI agents reporting to one
+          dashboard, with Sparkles on my wife's separate side" role="img" viewbox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+<g font-family="-apple-system,'Segoe UI',sans-serif">
+<rect fill="#ffffff" height="60" rx="12" stroke="#e3e1dc" width="240" x="330" y="14"></rect>
+<rect fill="#4f46e5" height="6" rx="3" width="240" x="330" y="14"></rect>
+<text fill="#20242a" font-size="15" font-weight="700" text-anchor="middle" x="450" y="44">THE BOARD</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="450" y="62">every agent reports here</text>
+<g stroke="#e3e1dc" stroke-width="2">
+<line x1="450" x2="450" y1="74" y2="100"></line>
+<line x1="16" x2="884" y1="100" y2="100"></line>
+<line x1="114" x2="114" y1="100" y2="126"></line><line x1="282" x2="282" y1="100" y2="126"></line><line x1="450" x2="450" y1="100" y2="126"></line><line x1="618" x2="618" y1="100" y2="126"></line><line x1="786" x2="786" y1="100" y2="126"></line>
+<line x1="16" x2="16" y1="100" y2="296"></line><line x1="884" x2="884" y1="100" y2="296"></line>
+<line x1="16" x2="884" y1="296" y2="296"></line>
+<line x1="165" x2="165" y1="296" y2="322"></line><line x1="355" x2="355" y1="296" y2="322"></line><line x1="545" x2="545" y1="296" y2="322"></line><line x1="735" x2="735" y1="296" y2="322"></line> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="156" x="36" y="126"></rect><rect fill="#d94f43" height="5" rx="2.5" width="156" x="36" y="126"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="114" y="156">🦩 Frosty</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="114" y="176">runs the rental</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="114" y="192">business</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="156" x="204" y="126"></rect><rect fill="#0a8f5b" height="5" rx="2.5" width="156" x="204" y="126"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="282" y="156">📈 Fable</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="282" y="176">trades (paper)</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="282" y="192">under hard rules</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="156" x="372" y="126"></rect><rect fill="#8c2f39" height="5" rx="2.5" width="156" x="372" y="126"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="450" y="156">📊 Warren</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="450" y="176">retirement CFO</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="156" x="540" y="126"></rect><rect fill="#8c2f39" height="5" rx="2.5" width="156" x="540" y="126"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="618" y="156">⚖️ Ellis</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="618" y="176">house counsel</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="156" x="708" y="126"></rect><rect fill="#0d9488" height="5" rx="2.5" width="156" x="708" y="126"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="786" y="156">🩺 Stone</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="786" y="176">health desk</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="170" x="80" y="322"></rect><rect fill="#4f46e5" height="5" rx="2.5" width="170" x="80" y="322"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="165" y="352">🎖️ Miles</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="165" y="372">chief of staff</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="170" x="270" y="322"></rect><rect fill="#c2620a" height="5" rx="2.5" width="170" x="270" y="322"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="355" y="352">🔧 Foster</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="355" y="372">home operations</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="170" x="460" y="322"></rect><rect fill="#0369a1" height="5" rx="2.5" width="170" x="460" y="322"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="545" y="352">🌍 Atlas</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="545" y="372">travel desk</text> </g>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="170" x="650" y="322"></rect><rect fill="#a05a2c" height="5" rx="2.5" width="170" x="650" y="322"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="735" y="352">🍸 Sullivan</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="735" y="372">runs the bar</text> </g>
+<line stroke="#69707a" stroke-dasharray="6 5" stroke-width="1.5" x1="575" x2="575" y1="448" y2="635"></line>
+<text fill="#69707a" font-size="11" font-weight="700" text-anchor="end" x="560" y="470">MY SIDE</text>
+<text fill="#69707a" font-size="11" font-weight="700" text-anchor="start" x="590" y="470">HER SIDE</text>
+<path d="M165 414 V 546 H 630" fill="none" stroke="#69707a" stroke-dasharray="3 5" stroke-width="1.5"></path>
+<rect fill="#f7f6f3" height="24" stroke="#e3e1dc" width="16" x="567" y="534"></rect>
+<text font-size="11" text-anchor="middle" x="575" y="551">✉</text>
+<text fill="#69707a" font-size="10.5" text-anchor="middle" x="330" y="533">structured notes only — no direct access</text>
+<g>
+<rect fill="#ffffff" height="92" rx="10" stroke="#e3e1dc" width="180" x="640" y="500"></rect><rect fill="#d6409f" height="5" rx="2.5" width="180" x="640" y="500"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="730" y="530">✨ Sparkles</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="730" y="550">my wife's chief of staff</text>
+<text fill="#69707a" font-size="11" text-anchor="middle" x="730" y="566">her login, her rules</text> </g>
+<g opacity="0.75">
+<rect fill="#ffffff" height="54" rx="8" stroke="#e3e1dc" stroke-dasharray="4 3" width="250" x="40" y="566"></rect>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="165" y="589">🪦 Pierce — the first trader</text>
+<text fill="#69707a" font-size="10.5" text-anchor="middle" x="165" y="606">retired · replaced by Fable (part 3)</text>
+</g> </g> </svg> <figcaption>The staff. Nine agents
           report to me, one reports to my wife. Each accent color
           matches that agent's page on my real dashboard, because I'm
           that kind of nerd.</figcaption> </figure>
-      <p>And here's what each desk was doing on the morning I wrote
+<p>And here's what each desk was doing on the morning I wrote
         this:</p>
-      <figure>
-        <div class="scroll">
-          <table class="roster">
-            <tbody>
-              <tr>
-                <th>Agent</th>
-                <th>Desk</th>
-                <th>This morning</th>
-              </tr>
-              <tr>
-                <td><strong>Frosty</strong></td>
-                <td>Rental business</td>
-                <td>Upcoming stays, next check-in soon</td>
-              </tr>
-              <tr>
-                <td><strong>Fable</strong></td>
-                <td>Trading (paper)</td>
-                <td>Flat week, no open positions, inside every limit</td>
-              </tr>
-              <tr>
-                <td><strong>Warren</strong></td>
-                <td>Retirement</td>
-                <td>⚠️ Waiting on me — needs my numbers before he'll
+<figure>
+<div class="scroll">
+<table class="roster">
+<tbody>
+<tr>
+<th>Agent</th>
+<th>Desk</th>
+<th>This morning</th>
+</tr>
+<tr>
+<td><strong>Frosty</strong></td>
+<td>Rental business</td>
+<td>Upcoming stays, next check-in soon</td>
+</tr>
+<tr>
+<td><strong>Fable</strong></td>
+<td>Trading (paper)</td>
+<td>Flat week, no open positions, inside every limit</td>
+</tr>
+<tr>
+<td><strong>Warren</strong></td>
+<td>Retirement</td>
+<td>⚠️ Waiting on me — needs my numbers before he'll
                   model anything</td>
-              </tr>
-              <tr>
-                <td><strong>Ellis</strong></td>
-                <td>Legal</td>
-                <td>No open matters</td>
-              </tr>
-              <tr>
-                <td><strong>Stone</strong></td>
-                <td>Health</td>
-                <td>⚠️ Holding a health note for my next appointment</td>
-              </tr>
-              <tr>
-                <td><strong>Miles</strong></td>
-                <td>Chief of staff</td>
-                <td>Daily brief out at 4 a.m., calendar current</td>
-              </tr>
-              <tr>
-                <td><strong>Foster</strong></td>
-                <td>Home ops</td>
-                <td>Home inventory · contractor records · 3 tasks due</td>
-              </tr>
-              <tr>
-                <td><strong>Atlas</strong></td>
-                <td>Travel</td>
-                <td>Late-July trip booked, a few loose ends</td>
-              </tr>
-              <tr>
-                <td><strong>Sullivan</strong></td>
-                <td>The bar</td>
-                <td>Manages my bar inventory, a lot of bottles, 80
+</tr>
+<tr>
+<td><strong>Ellis</strong></td>
+<td>Legal</td>
+<td>No open matters</td>
+</tr>
+<tr>
+<td><strong>Stone</strong></td>
+<td>Health</td>
+<td>⚠️ Holding a health note for my next appointment</td>
+</tr>
+<tr>
+<td><strong>Miles</strong></td>
+<td>Chief of staff</td>
+<td>Daily brief out at 4 a.m., calendar current</td>
+</tr>
+<tr>
+<td><strong>Foster</strong></td>
+<td>Home ops</td>
+<td>Home inventory · contractor records · 3 tasks due</td>
+</tr>
+<tr>
+<td><strong>Atlas</strong></td>
+<td>Travel</td>
+<td>Late-July trip booked, a few loose ends</td>
+</tr>
+<tr>
+<td><strong>Sullivan</strong></td>
+<td>The bar</td>
+<td>Manages my bar inventory, a lot of bottles, 80
                   recipes, fourteen bottles running low</td>
-              </tr>
-              <tr>
-                <td><strong>Sparkles</strong></td>
-                <td>My wife's chief of staff</td>
-                <td>Her login, her rules — that story closes the series</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </figure>
-      <p>Notice two of those are flagged. That's not embarrassing,
+</tr>
+<tr>
+<td><strong>Sparkles</strong></td>
+<td>My wife's chief of staff</td>
+<td>Her login, her rules — that story closes the series</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+<p>Notice two of those are flagged. That's not embarrassing,
         that's the product working. Warren is stuck because <em>I</em>
         haven't given him my numbers. Stone is holding a note for my
         next doctor visit. A dashboard where everything is always green
         might just be lying to you.</p>
-      <h2>The board</h2>
-      <p>All the agents report everything to one dashboard, I call it
+<h2>The board</h2>
+<p>All the agents report everything to one dashboard, I call it
         Mission Control - one tile per agent, on my phone. Here's a
         mock-up. The numbers are invented, because the real board is
-        private. <br>
-      </p>
-      <figure>
-        <div class="board">
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>🦩 Frosty</div>
+        private. <br/>
+</p>
+<figure>
+<div class="board">
+<div class="tile">
+<div class="nm"><span class="dot"></span>🦩 Frosty</div>
             Upcoming stays · next check-in soon
             <div class="ft">updated 12m ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>📈 Fable</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>📈 Fable</div>
             Paper equity ~$98,400 · 2 open · wk +0.8%
             <div class="ft">updated 18m ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot amber"></span>📊 Warren</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot amber"></span>📊 Warren</div>
             Waiting on my inputs
             <div class="ft">weekly check-in · 3d ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>⚖️ Ellis</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>⚖️ Ellis</div>
             No open matters
             <div class="ft">updated 2d ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>🩺 Stone</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>🩺 Stone</div>
             Labs current · next review Oct
             <div class="ft">updated 9h ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>🎖️ Miles</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>🎖️ Miles</div>
             Morning brief sent 6:02a
             <div class="ft">updated 2h ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>🔧 Foster</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>🔧 Foster</div>
             31 items · 3 tasks due this week
             <div class="ft">updated 1h ago</div>
-          </div>
-          <div class="tile stale">
-            <div class="nm"><span class="dot amber"></span>🌍 Atlas</div>
+</div>
+<div class="tile stale">
+<div class="nm"><span class="dot amber"></span>🌍 Atlas</div>
             Last: hotel shortlist drafted
             <div class="ft">STALE · 31h — hasn't checked in</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>🍸 Sullivan</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>🍸 Sullivan</div>
             91 bottles · 79 recipes · 14 low
             <div class="ft">updated 45m ago</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot gray"></span>✨ Sparkles</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot gray"></span>✨ Sparkles</div>
             Works for my wife — not on my board
             <div class="ft">by design</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot gray"></span>🪦 Pierce</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot gray"></span>🪦 Pierce</div>
             Retired · replaced by Fable
             <div class="ft">—</div>
-          </div>
-          <div class="tile">
-            <div class="nm"><span class="dot"></span>🖥️ System</div>
+</div>
+<div class="tile">
+<div class="nm"><span class="dot"></span>🖥️ System</div>
             27 jobs green · backups current
             <div class="ft">updated 6m ago</div>
-          </div>
-        </div>
-        <figcaption>A mock-up with invented numbers. The rule that makes
+</div>
+</div>
+<figcaption>A mock-up with invented numbers. The rule that makes
           it trustworthy: every agent publishes its own status, every
           tile is stamped with when, and a tile that misses its check-in
           window goes amber and says <em>stale</em> — it never quietly
           shows old data as current. See Atlas up there, busted.</figcaption>
-      </figure>
-      <p>The agents can't write on each other's tiles, and they're
+</figure>
+<p>The agents can't write on each other's tiles, and they're
         forbidden from reading each other's files. Each one reports its
         own status; the board just displays. It's a newsroom with a wall
         between reporters, not a group chat.</p>
-      <div class="box">
-        <h3>The names are on purpose</h3>
-        <ul>
-          <li><strong>Frosty</strong> - the persona of the rental
+<div class="box">
+<h3>The names are on purpose</h3>
+<ul>
+<li><strong>Frosty</strong> - the persona of the rental
             business itself. The brand had a mascot before it had an AI;
             the agent just clocked in under the name.</li>
-          <li><strong>Miles</strong> - every operation needs a chief of
+<li><strong>Miles</strong> - every operation needs a chief of
             staff with squared-away Army-officer energy.</li>
-          <li><strong>Fable</strong> - named after the model that
+<li><strong>Fable</strong> - named after the model that
             audited my first trading bot and discovered it was designed
             to lose money slowly. Full story in part 3.</li>
-          <li><strong>Foster Wright</strong> - to foster my home
+<li><strong>Foster Wright</strong> - to foster my home
             operations right. Yes, Wright. I'm allowed one dad joke per
             agent.</li>
-          <li><strong>Sullivan</strong> - because every good bar
+<li><strong>Sullivan</strong> - because every good bar
             deserves a Sullivan behind it.</li>
-          <li><strong>Ellis Gray</strong> - because the law usually is
+<li><strong>Ellis Gray</strong> - because the law usually is
             [gray].</li>
-          <li><strong>Sparkles</strong> - for my favorite person, who
+<li><strong>Sparkles</strong> - for my favorite person, who
             deserves sparkles and sunshine.</li>
-          <li><strong>Atlas &amp; Stone</strong> - travel and health,
+<li><strong>Atlas &amp; Stone</strong> - travel and health,
             running quietly in the background all series. Not every desk
             gets its own chapter, and that's fine; the ones that do are
             the ones with the best stories.</li>
-          <li><b>System</b>&nbsp;- Not an agent, just plumbing. Cron
+<li><b>System</b> - Not an agent, just plumbing. Cron
             jobs, scheduled reports, routine maintenance, offsite
             backups: the stuff that has to run whether or not anyone's
             watching. It doesn't get a name because it doesn't decide
             anything - it executes. Which is, admittedly, a very "ops
             guy" thing to build. I run operations for a living;
-            apparently I can't turn that off at home either. <br>
-          </li>
-        </ul>
-      </div>
-      <h2>How it's actually built</h2>
-      <p>Quick look under the hood, because "I have ten AI agents" might
-        sound like magic, it's not.&nbsp; The chassis is <strong>OpenClaw</strong>,
+            apparently I can't turn that off at home either. <br/>
+</li>
+</ul>
+</div>
+<h2>How it's actually built</h2>
+<p>Quick look under the hood, because "I have ten AI agents" might
+        sound like magic, it's not.  The chassis is <strong>OpenClaw</strong>,
         a self-hosted agent framework running locally in my home lab.
         Each agent is basically a folder on that machine: a written job
         description (who you are, what you own, what you must never do),
@@ -420,7 +358,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         business brief, the weekly check-ins, the monthly license review
         — under the hood, those are just cron jobs that wake the right
         agent with the right assignment.</p>
-      <p>The brains are rented by the minute. When an agent wakes up,
+<p>The brains are rented by the minute. When an agent wakes up,
         OpenClaw hands its instructions and the task to a large language
         model — and <em>which</em> model is a routing decision. Most of
         the fleet goes through <strong>OpenRouter.ai</strong>, a
@@ -435,70 +373,52 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
 
           to Anthropic and OpenAI</strong>. Why they get different
         treatment is part 5.</p>
-      <figure>
-        <svg aria-label="Stack diagram: ten agents on OpenClaw route to
+<figure>
+<svg aria-label="Stack diagram: ten agents on OpenClaw route to
           OpenRouter for everyday work or directly to Anthropic and
-          OpenAI for sensitive work" role="img" viewBox="0 0 760 310"
-          xmlns="http://www.w3.org/2000/svg">
-          <g font-family="-apple-system,'Segoe UI',sans-serif">
-            <rect fill="#ffffff" height="78" rx="12" stroke="#e3e1dc"
-              stroke-width="2" width="600" x="80" y="14"></rect>
-            <rect fill="#4f46e5" height="6" rx="3" width="600" x="80"
-              y="14"></rect>
-            <text fill="#20242a" font-size="14" font-weight="700"
-              text-anchor="middle" x="380" y="48">THE STAFF — ten agents
+          OpenAI for sensitive work" role="img" viewbox="0 0 760 310" xmlns="http://www.w3.org/2000/svg">
+<g font-family="-apple-system,'Segoe UI',sans-serif">
+<rect fill="#ffffff" height="78" rx="12" stroke="#e3e1dc" stroke-width="2" width="600" x="80" y="14"></rect>
+<rect fill="#4f46e5" height="6" rx="3" width="600" x="80" y="14"></rect>
+<text fill="#20242a" font-size="14" font-weight="700" text-anchor="middle" x="380" y="48">THE STAFF — ten agents
               on OpenClaw</text>
-            <text fill="#69707a" font-size="11.5" text-anchor="middle"
-              x="380" y="70">self-hosted · job descriptions · memory ·
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="380" y="70">self-hosted · job descriptions · memory ·
               schedules</text>
-            <g fill="none" stroke="#e3e1dc" stroke-width="2">
-              <line x1="380" x2="380" y1="92" y2="118"></line>
-              <line x1="200" x2="560" y1="118" y2="118"></line>
-              <line x1="200" x2="200" y1="118" y2="146"></line>
-              <line x1="560" x2="560" y1="118" y2="146"></line> </g>
-            <rect fill="#ffffff" height="128" rx="12" stroke="#e3e1dc"
-              stroke-width="2" width="340" x="30" y="146"></rect>
-            <rect fill="#0369a1" height="6" rx="3" width="340" x="30"
-              y="146"></rect>
-            <text fill="#20242a" font-size="13" font-weight="700"
-              text-anchor="middle" x="200" y="178">EVERYDAY BRAINS —
+<g fill="none" stroke="#e3e1dc" stroke-width="2">
+<line x1="380" x2="380" y1="92" y2="118"></line>
+<line x1="200" x2="560" y1="118" y2="118"></line>
+<line x1="200" x2="200" y1="118" y2="146"></line>
+<line x1="560" x2="560" y1="118" y2="146"></line> </g>
+<rect fill="#ffffff" height="128" rx="12" stroke="#e3e1dc" stroke-width="2" width="340" x="30" y="146"></rect>
+<rect fill="#0369a1" height="6" rx="3" width="340" x="30" y="146"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="200" y="178">EVERYDAY BRAINS —
               OpenRouter.ai</text>
-            <text fill="#69707a" font-size="11.5" text-anchor="middle"
-              x="200" y="200">one API, dozens of models — cheapest
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="200" y="200">one API, dozens of models — cheapest
               capable wins</text>
-            <text fill="#69707a" font-size="11.5" text-anchor="middle"
-              x="200" y="220">DeepSeek · MiniMax · whoever's best value
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="200" y="220">DeepSeek · MiniMax · whoever's best value
               today</text>
-            <text fill="#4f46e5" font-size="11" font-weight="600"
-              text-anchor="middle" x="200" y="252">bookings · briefs ·
+<text fill="#4f46e5" font-size="11" font-weight="600" text-anchor="middle" x="200" y="252">bookings · briefs ·
               bar math</text>
-            <rect fill="#ffffff" height="128" rx="12" stroke="#e3e1dc"
-              stroke-width="2" width="340" x="390" y="146"></rect>
-            <rect fill="#8c2f39" height="6" rx="3" width="340" x="390"
-              y="146"></rect>
-            <text fill="#20242a" font-size="13" font-weight="700"
-              text-anchor="middle" x="560" y="178">SENSITIVE BRAINS —
+<rect fill="#ffffff" height="128" rx="12" stroke="#e3e1dc" stroke-width="2" width="340" x="390" y="146"></rect>
+<rect fill="#8c2f39" height="6" rx="3" width="340" x="390" y="146"></rect>
+<text fill="#20242a" font-size="13" font-weight="700" text-anchor="middle" x="560" y="178">SENSITIVE BRAINS —
               direct APIs</text>
-            <text fill="#69707a" font-size="11.5" text-anchor="middle"
-              x="560" y="200">Anthropic (Claude) · OpenAI (GPT)</text>
-            <text fill="#69707a" font-size="11.5" text-anchor="middle"
-              x="560" y="220">named models, my keys, no middleman</text>
-            <text fill="#8c2f39" font-size="11" font-weight="600"
-              text-anchor="middle" x="560" y="252">finance (Warren) ·
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="560" y="200">Anthropic (Claude) · OpenAI (GPT)</text>
+<text fill="#69707a" font-size="11.5" text-anchor="middle" x="560" y="220">named models, my keys, no middleman</text>
+<text fill="#8c2f39" font-size="11" font-weight="600" text-anchor="middle" x="560" y="252">finance (Warren) ·
               legal (Ellis)</text>
-            <text fill="#69707a" font-size="12" text-anchor="middle"
-              x="380" y="300">one framework, two supply chains — on
+<text fill="#69707a" font-size="12" text-anchor="middle" x="380" y="300">one framework, two supply chains — on
               purpose</text> </g> </svg> <figcaption>The whole stack.
           Part 5 is about why it splits.</figcaption> </figure>
-      <p>Notice what's <em>not</em> in that picture: anything exotic. A
+<p>Notice what's <em>not</em> in that picture: anything exotic. A
         framework, a router, a couple of API keys, and a lot of
         management. Which brings me to the part nobody warns you about.</p>
-      <h2>You don't deploy a staff. You manage one.</h2>
-      <p>Here's what surprised me most, and it's the thread that runs
+<h2>You don't deploy a staff. You manage one.</h2>
+<p>Here's what surprised me most, and it's the thread that runs
         through this whole series: none of these agents were set up once
         and left alone. Anyone who tells you they stood up a fleet of
         autonomous agents in an afternoon is selling something.</p>
-      <p>Running this staff is an ongoing back-and-forth, much closer to
+<p>Running this staff is an ongoing back-and-forth, much closer to
         managing people than installing software. I describe what I want
         a desk to handle. We draft its standing instructions together. I
         watch how it behaves for a few days, and then we tighten. An
@@ -507,7 +427,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         instruction set, which openclaw calls it's soul.md. Ones that
         guess, or hallucinate when it should have escalated gets taught
         to escalate.</p>
-      <p>And that back-and-forth <em>is</em> the skill. When people ask
+<p>And that back-and-forth <em>is</em> the skill. When people ask
         me "what tool did you use," it's the wrong question. The work
         isn't the tool — it's writing a good job description, judging
         output, drawing the line between "just handle it" and "bring it
@@ -515,14 +435,14 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         management. It's also, not coincidentally, exactly the skill set
         every company says it wants in an "AI-capable" leader. I built
         mine at my kitchen table.</p>
-      <p>The agents are built to keep me in the loop, not to run off and
+<p>The agents are built to keep me in the loop, not to run off and
         act on everything. That's why Warren's tile says "waiting on me"
         instead of inventing a retirement plan from thin data, and why
         my rental agent approves a clean booking overnight but kicks the
         weird ones up to me by morning. The goal was never a machine
         that needs no human. The goal was a staff that knows the
         difference.</p>
-      <p>One last thing before the tour starts. Not a single one of
+<p>One last thing before the tour starts. Not a single one of
         these agents took a job from anyone — most of them do work that
         simply never got done before, because it wasn't practical for a
         human to do it, or I just didn't have the time. That's the
@@ -530,27 +450,26 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         replaces you, the one that hands you capabilities you didn't
         have last year. I didn't set out to build an army of agents. I
         set out to stop keeping everything I do to manage my household
-        in my head.&nbsp; I needed some help remembering everything. It
-        turned into a staff of ten — nine of mine, and one married in.<br>
-      </p>
-      <p>Which task in your life deserves its own desk?
-        <meta charset="utf-8">
-        <meta charset="utf-8">
-      </p>
-      <div class="notice"><strong>Personal project note.</strong> This
+        in my head.  I needed some help remembering everything. It
+        turned into a staff of ten — nine of mine, and one married in.<br/>
+</p>
+<p>Which task in your life deserves its own desk?
+        
+
+</p>
+<div class="notice"><strong>Personal project note.</strong> This
         series describes a personal home-lab project, not my employer's
         work or advice. Nothing here is financial, legal, health,
         security, or investment advice. The trading example is
         paper/simulated only.</div>
-      <div class="about"><strong>About this series.</strong> I help
+<div class="about"><strong>About this series.</strong> I help
         manage and lead video operations for a living. None of this is
         my day job, and I'm not a professional developer - every agent,
         dashboard, and guardrail here was built at home, nights and
         weekends, working with AI. That was the point: the best way I
         know to get fluent in a technology is to build something real
         with it.</div>
-      <nav class="series"><a href="index.html">← Series home</a><a
-          href="02-the-business-case.html">Part 2: The business →</a></nav>
-    </div>
-  </body>
+<nav class="series"><a href="index.html">← Series home</a><a href="02-the-business-case.html">Part 2: The business →</a></nav>
+</div>
+</body>
 </html>
