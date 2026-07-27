@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Part 2 of The Staff of Ten: the
-      business case, guest guardrails, and safe default for a rental AI
-      agent.">
-    <meta property="og:title" content="The Staff of Ten">
-    <meta property="og:description" content="Part 2 of The Staff of Ten:
-      the business case, guest guardrails, and safe default for a rental
-      AI agent.">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Part 2 of The Staff of Ten: the business case, guest
+      guardrails, and safe default for a rental AI agent."
+      name="description">
+    <meta content="The Staff of Ten" property="og:title">
+    <meta content="Part 2 of The Staff of Ten: the business case, guest
+      guardrails, and safe default for a rental AI agent."
+      property="og:description">
     <title>The Staff of Ten — Part 2: The Business</title>
     <style>
 :root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#d94f43}
@@ -47,7 +47,30 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
 .notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
 .cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
 @media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
 </style>
+    <meta
+content="https://alandmunro.github.io/the-staff-of-ten/images/part-2-cover.png"
+      property="og:image">
+    <meta content="The Staff of Ten, Part 2 — The employee who runs my
+      rental business while I sleep." property="og:image:alt">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta
+content="https://alandmunro.github.io/the-staff-of-ten/images/part-2-cover.png"
+      name="twitter:image">
+    <meta
+content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html"
+      property="og:url">
+    <meta content="article" property="og:type">
+    <link
+href="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html"
+      rel="canonical">
+    <meta
+content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html"
+      name="twitter:url">
   </head>
   <body>
     <div class="wrap">
@@ -57,6 +80,10 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         — and a three-color constitution that decides what the AI is
         allowed to touch.</p>
       <div class="byline">Alan Munro · July 2026</div>
+      <figure class="cover"><img alt="The Staff of Ten, Part 2 — The
+          employee who runs my rental business while I sleep."
+          decoding="async" loading="eager" src="images/part-2-cover.png"
+          width="1733" height="907"></figure>
       <p>Sometime around 2 a.m., a reservation came in for my rental
         property. By the time I looked at my phone, it was already
         sitting in my property-management system — guest mapped, dates
@@ -67,15 +94,15 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         I'd show someone skeptical about AI, because it isn't managing
         my calendar or my feelings. It's running a <strong>"business"</strong>.
         A quick word on the name: Frosty was the persona of the rental
-        brand before it was ever a bot. The short term rental business
-        already had a mascot — the agent just took the name and the job.</p>
+        brand before it was ever a bot. The business already had a
+        mascot — the agent just took the name and the job.</p>
       <h2>What Frosty actually runs</h2>
       <p>The operation is a short-term rental in a Colorado ski town,
-        booked across top 3 big platforms, all feeding one
+        booked across the big platforms, all feeding one
         property-management system as the source of truth. On the board
         this morning: a handful of upcoming stays, the next guest
         arriving soon, and my favorite line item — an owner block where
-        the guest is me and the payout is $0. Even the I have to book
+        the guest is me and the payout is $0. Even the boss books
         through the system.</p>
       <p>Syncing a calendar isn't interesting; plenty of software does
         that. What's interesting is that Frosty makes <em>decisions</em>
@@ -84,8 +111,8 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
       <p><strong>4 a.m. — the business brief.</strong> Frosty pulls
         active bookings, works out who's arriving and leaving over the
         next seven days, and triages the business inbox — guest
-        messages, platform notifications, bills, and vendor mail — into
-        "handled" and "needs Alan." It's waiting for me when I wake up.</p>
+        messages, platform notifications, vendor mail — into "handled"
+        and "needs Alan." It's waiting for me when I wake up.</p>
       <p><strong>7 a.m. — the booking pipeline.</strong> A short,
         staggered sequence of scheduled jobs — plain old cron, courtesy
         of OpenClaw, the self-hosted framework the whole staff runs on:
@@ -93,12 +120,11 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         creating in the system, reconcile the pending queue.
         Deliberately boring, deliberately sequential.</p>
       <p><strong>The 28th — obligations.</strong> Once a month Frosty
-        does the unglamorous work that rental owners would rather forget
-        about: licenses, taxes, renewals. Right now it's tracking the
-        town's STR license renewal — a recurring filing window — so a
-        lapsed permit never becomes a fine, or worse, a shutdown.
-        Humans, no I forget about this stuff precisely because it only
-        happens once a year.</p>
+        does the unglamorous work that actually sinks rental owners:
+        licenses, taxes, renewals. Right now it's tracking the town's
+        STR license renewal — a recurring filing window — so a lapsed
+        permit never becomes a fine, or worse, a shutdown. Humans forget
+        this stuff precisely because it only happens once a year.</p>
       <h2>The constitution</h2>
       <p>Here's the question everyone asks: <em>aren't you afraid it'll
           say something stupid to a real guest?</em> I would be, if it
@@ -125,7 +151,8 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
             my approval. Nothing goes to the guest until I say so.</p>
           <span class="pill">date changes</span><span class="pill">early
             check-in</span><span class="pill">late checkout</span><span
-            class="pill">rule exceptions</span> </div>
+            class="pill">rule exceptions</span>
+        </div>
         <div class="zone" style="border-left-color:#cf3f35">
           <h3>🔴 Red — don't touch it, get me</h3>
           <p>Money, legal, safety, reputation. Frosty does not reply on
@@ -136,7 +163,8 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
             class="pill">damage</span><span class="pill">injuries</span><span
             class="pill">angry guests</span><span class="pill">unknown
             people at the door</span><span class="pill">uncertainty
-            itself</span> </div>
+            itself</span>
+        </div>
         <figcaption>The design rule underneath: the agent's authority is
           widest where stakes are lowest, and shrinks to zero exactly
           where a mistake would cost money, safety, or reputation.</figcaption>
@@ -147,10 +175,13 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
       <figure>
         <div class="chat">
           <div class="hdr">New booking ready ✅</div>
-          <div class="kv"> <span>Property</span><span>Alpine condo</span>
-            <span>Guest</span><span>J. Sample</span> <span>Channel</span><span>Airbnb</span>
-            <span>Stay</span><span>Jul 15 → Jul 18</span> <span>Sleeps</span><span>4
-              adults</span> </div>
+          <div class="kv">
+            <span>Property</span><span>Alpine condo</span>
+            <span>Guest</span><span>J. Sample</span>
+            <span>Channel</span><span>Airbnb</span>
+            <span>Stay</span><span>Jul 15 → Jul 18</span>
+            <span>Sleeps</span><span>4 adults</span>
+          </div>
           <div class="replies"><b>1 · approve</b><b>2 · reject</b><b>3 ·
               defer</b></div>
           <div class="timer">⏱ No answer in ~90 minutes? It files itself
@@ -163,10 +194,9 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         yes (act, keep things moving) or no (block everything, become
         useless). Frosty defaults to <strong>not yet</strong>. Silence
         from me is never read as consent. Worst case when I'm asleep or
-        on a chairlift, if we actually get snow next year, with no
-        signal isn't a bad booking pushed through — it's a booking that
-        waits politely for me to respond, on my schedule. It fails safe
-        by failing slow, on purpose.</p>
+        on a chairlift with no signal isn't a bad booking pushed through
+        — it's a booking that waits politely for me to respond, on my
+        schedule. It fails safe by failing slow, on purpose.</p>
       <h2>Where a human still matters</h2>
       <p>"It runs itself" is a lie every automation vendor tells, so let
         me be straight about the limits. Frosty doesn't set pricing
@@ -191,10 +221,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         decisions on its own — and the story of how its predecessor got
         caught losing on purpose.<br>
       </p>
-      <p>In your business, where should silence never mean
-        consent?&nbsp;&nbsp;&nbsp;
-        <meta charset="utf-8">
-      </p>
+      <p>In your business, where should silence never mean consent? </p>
       <div class="notice"><strong>Personal project note.</strong> This
         series describes a personal home-lab project, not my employer's
         work or advice. Nothing here is financial, legal, health,
