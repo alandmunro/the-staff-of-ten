@@ -11,7 +11,7 @@
     <meta content="Part 2 of The Staff of Ten: the business case, guest
       guardrails, and safe default for a rental AI agent."
       property="og:description">
-    <title>The Staff of Ten — Part 2: The Business</title>
+    <title>The Staff of Ten, Part 2: The Business</title>
     <style>
 :root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#d94f43}
 @media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
@@ -55,7 +55,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
     <meta
 content="https://alandmunro.github.io/the-staff-of-ten/images/part-2-cover.png"
       property="og:image">
-    <meta content="The Staff of Ten, Part 2 — The employee who runs my
+    <meta content="The Staff of Ten, Part 2: The employee who runs my
       rental business while I sleep." property="og:image:alt">
     <meta content="summary_large_image" name="twitter:card">
     <meta
@@ -76,18 +76,18 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
     <div class="wrap">
       <div class="kicker">The Staff of Ten · Part 2 of 6</div>
       <h1>The employee who runs my rental business while I sleep</h1>
-      <p class="standfirst">Real guests, real money, real legal exposure
-        — and a three-color constitution that decides what the AI is
+      <p class="standfirst">Real guests, real money, real legal exposure,
+        and a three-color constitution that decides what the AI is
         allowed to touch.</p>
       <div class="byline">Alan Munro · July 2026</div>
-      <figure class="cover"><img alt="The Staff of Ten, Part 2 — The
+      <figure class="cover"><img alt="The Staff of Ten, Part 2: The
           employee who runs my rental business while I sleep."
           decoding="async" loading="eager" src="images/part-2-cover.png"
           width="1733" height="907"></figure>
       <p>Sometime around 2 a.m., a reservation came in for my rental
         property. By the time I looked at my phone, it was already
-        sitting in my property-management system — guest mapped, dates
-        confirmed, occupancy set — with a one-line summary of what
+        sitting in my property-management system: guest mapped, dates
+        confirmed, occupancy set, with a one-line summary of what
         happened and why it was safe to let through.</p>
       <p>I didn't do any of that. Frosty did.</p>
       <p>Frosty is the first desk on my staff of ten, and it's the one
@@ -95,34 +95,34 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
         my calendar or my feelings. It's running a <strong>"business"</strong>.
         A quick word on the name: Frosty was the persona of the rental
         brand before it was ever a bot. The business already had a
-        mascot — the agent just took the name and the job.</p>
+        mascot; the agent just took the name and the job.</p>
       <h2>What Frosty actually runs</h2>
       <p>The operation is a short-term rental in a Colorado ski town,
         booked across the big platforms, all feeding one
         property-management system as the source of truth. On the board
         this morning: a handful of upcoming stays, the next guest
-        arriving soon, and my favorite line item — an owner block where
+        arriving soon, and my favorite line item: an owner block where
         the guest is me and the payout is $0. Even the boss books
         through the system.</p>
       <p>Syncing a calendar isn't interesting; plenty of software does
-        that. What's interesting is that Frosty makes <em>decisions</em>
-        — inside rules strict enough that I sleep through the night.</p>
+        that. What's interesting is that Frosty makes <em>decisions</em>,
+        inside rules strict enough that I sleep through the night.</p>
       <h2>The daily rhythm</h2>
-      <p><strong>4 a.m. — the business brief.</strong> Frosty pulls
+      <p><strong>4 a.m.: the business brief.</strong> Frosty pulls
         active bookings, works out who's arriving and leaving over the
-        next seven days, and triages the business inbox — guest
-        messages, platform notifications, vendor mail — into "handled"
+        next seven days, and triages the business inbox (guest
+        messages, platform notifications, vendor mail) into "handled"
         and "needs Alan." It's waiting for me when I wake up.</p>
-      <p><strong>7 a.m. — the booking pipeline.</strong> A short,
-        staggered sequence of scheduled jobs — plain old cron, courtesy
+      <p><strong>7 a.m.: the booking pipeline.</strong> A short,
+        staggered sequence of scheduled jobs, plain old cron, courtesy
         of OpenClaw, the self-hosted framework the whole staff runs on:
         review anything deferred overnight, catch up bookings that need
         creating in the system, reconcile the pending queue.
         Deliberately boring, deliberately sequential.</p>
-      <p><strong>The 28th — obligations.</strong> Once a month Frosty
+      <p><strong>The 28th: obligations.</strong> Once a month Frosty
         does the unglamorous work that actually sinks rental owners:
         licenses, taxes, renewals. Right now it's tracking the town's
-        STR license renewal — a recurring filing window — so a lapsed
+        STR license renewal (a recurring filing window) so a lapsed
         permit never becomes a fine, or worse, a shutdown. Humans forget
         this stuff precisely because it only happens once a year.</p>
       <h2>The constitution</h2>
@@ -132,11 +132,11 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
         interaction gets sorted into one of three zones before Frosty is
         allowed to touch it. I call it the Guest Interaction
         Constitution, and writing it was the best AI-safety education
-        I've ever had — not a course, just a few Tuesday nights arguing
+        I've ever had, not a course, just a few Tuesday nights arguing
         with a bot about what counts as a refund question.</p>
       <figure>
         <div class="zone" style="border-left-color:#2e9e5b">
-          <h3>🟢 Green — send it</h3>
+          <h3>🟢 Green: send it</h3>
           <p>Low-risk, known-answer questions. One correct response
             exists; no judgment involved. Frosty answers directly from
             approved templates.</p>
@@ -146,7 +146,7 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
             class="pill">parking</span><span class="pill">what's nearby</span>
         </div>
         <div class="zone" style="border-left-color:#e0a020">
-          <h3>🟡 Yellow — draft it, then wait for me</h3>
+          <h3>🟡 Yellow: draft it, then wait for me</h3>
           <p>Situational stuff. Frosty writes the reply and holds it for
             my approval. Nothing goes to the guest until I say so.</p>
           <span class="pill">date changes</span><span class="pill">early
@@ -154,7 +154,7 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
             class="pill">rule exceptions</span>
         </div>
         <div class="zone" style="border-left-color:#cf3f35">
-          <h3>🔴 Red — don't touch it, get me</h3>
+          <h3>🔴 Red: don't touch it, get me</h3>
           <p>Money, legal, safety, reputation. Frosty does not reply on
             my behalf, period. It summarizes, lays out the facts, and
             escalates. And the catch-all: <em>anything it's not sure
@@ -188,21 +188,21 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
             under <strong>defer</strong> and waits.</div>
         </div>
         <figcaption>Mock-up, invented guest. The three-button reply is
-          the whole interface — I run a business from a chat thread.</figcaption>
+          the whole interface. I run a business from a chat thread.</figcaption>
       </figure>
       <p>That default is the entire ballgame. A naive system defaults to
         yes (act, keep things moving) or no (block everything, become
         useless). Frosty defaults to <strong>not yet</strong>. Silence
         from me is never read as consent. Worst case when I'm asleep or
-        on a chairlift with no signal isn't a bad booking pushed through
-        — it's a booking that waits politely for me to respond, on my
+        on a chairlift with no signal isn't a bad booking pushed through;
+        it's a booking that waits politely for me to respond, on my
         schedule. It fails safe by failing slow, on purpose.</p>
       <h2>Where a human still matters</h2>
       <p>"It runs itself" is a lie every automation vendor tells, so let
         me be straight about the limits. Frosty doesn't set pricing
         strategy. It doesn't decide whether to fire a cleaner, take a
         sketchy last-minute booking, or eat a refund to dodge a bad
-        review — those are red-zone by design and they come to me.</p>
+        review: those are red-zone by design and they come to me.</p>
       <p>What it removes is the tax of remembering: the two hundred
         small things that make even one rental a background hum of
         anxiety. Did the booking sync? Is the license current? Did
@@ -212,13 +212,13 @@ content="https://alandmunro.github.io/the-staff-of-ten/02-the-business-case.html
       <p>That's the honest ROI. Not "AI replaced me." More like: I got a
         diligent, slightly anxious operations manager who works every
         hour of every day, never forgets a renewal, reads every guest
-        message the minute it lands — and follows a written rule about
+        message the minute it lands, and follows a written rule about
         exactly when to wake me. A skeptic doesn't need to believe the
         agent is smart. They need to believe the guardrails are real.
         The intelligence is optional. <br>
       </p>
       <p>Next up: the one agent I allow to make simulated trading
-        decisions on its own — and the story of how its predecessor got
+        decisions on its own, and the story of how its predecessor got
         caught losing on purpose.<br>
       </p>
       <p>In your business, where should silence never mean consent? </p>

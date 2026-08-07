@@ -12,7 +12,7 @@
 <meta content="Part 5 of The Staff of Ten:
       data classification, model choice, and direct APIs for sensitive
       AI work." property="og:description"/>
-<title>The Staff of Ten — Part 5: Behind the Curtain</title>
+<title>The Staff of Ten, Part 5: Behind the Curtain</title>
 <style>
 :root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#8c2f39}
 @media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038}}
@@ -50,19 +50,19 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
 .cover img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
 @media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img{border-radius:10px}}
 </style>
-<meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-5-cover.png" property="og:image"/><meta content="The Staff of Ten, Part 5 — Two of my agents do not get to pick their own brains." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-5-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" property="og:url"/><meta content="article" property="og:type"/><link href="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" name="twitter:url"/></head>
+<meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-5-cover.png" property="og:image"/><meta content="The Staff of Ten, Part 5: Two of my agents do not get to pick their own brains." property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://alandmunro.github.io/the-staff-of-ten/images/part-5-cover.png" name="twitter:image"/><meta content="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" property="og:url"/><meta content="article" property="og:type"/><link href="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" rel="canonical"/><meta content="https://alandmunro.github.io/the-staff-of-ten/05-the-privacy-build.html" name="twitter:url"/></head>
 <body>
 <div class="wrap">
 <div class="kicker">The Staff of Ten · Part 5 of 6</div>
 <h1>Two of my agents don't get to pick their own brains</h1>
 <p class="standfirst">Most of my AI staff can use whichever model is capable, available, and cost-effective. Two desks are different: the ones handling my retirement finances and sensitive legal documents.</p>
-<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten, Part 5 — Two of my agents do not get to pick their own brains." decoding="async" height="907" loading="eager" src="images/part-5-cover.png" width="1733"/></figure>
+<div class="byline">Alan Munro · July 2026</div><figure class="cover"><img alt="The Staff of Ten, Part 5: Two of my agents do not get to pick their own brains." decoding="async" height="907" loading="eager" src="images/part-5-cover.png" width="1733"/></figure>
 <p>For most of my AI staff, I’m comfortable letting the system choose the cheapest capable model for the job. A cocktail recommendation or a home-inventory question does not require a board meeting.</p>
 <p>Retirement balances and legal agreements are different. For those two desks, I want to know exactly which company’s model is processing the information, what data controls apply, and where the request is going. So Warren and Ellis do not get to pick their own brains.</p>
 <p>The other eight agents are routed through <strong>OpenRouter.ai</strong>, a marketplace that puts many models behind one API and lets a capable, cost-effective option handle the task. When Sullivan is matching cocktails to bottles, I genuinely do not care which model does the matching. The stakes are a drink, and the marketplace is a great deal.</p>
 <h2>The two sensitive desks</h2>
 <p><strong>Warren</strong> is my retirement CFO. His whole job is
-        to reason over sensitive retirement inputs — accounts, balances,
+        to reason over sensitive retirement inputs: accounts, balances,
         spend targets, risk tolerance, and the planning assumptions that
         decide whether work is optional someday. That is a different
         category of financial privacy.</p>
@@ -80,8 +80,8 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
 <div class="lane">
 <h3>Eight of ten: the OpenRouter pool</h3>
             Routed through OpenRouter.ai to whatever capable model is
-            cheapest today — DeepSeek, MiniMax, whoever wins on price.
-            Great deal — for cocktails and calendars.
+            cheapest today: DeepSeek, MiniMax, whoever wins on price.
+            Great deal, for cocktails and calendars.
             <div class="who">Frosty · Miles · Foster · Sullivan · Atlas
               · Stone …</div>
 </div>
@@ -90,7 +90,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
               financial and legal categories.</div>
 </div>
 </div>
-<figcaption>Same staff, two supply chains — on purpose.</figcaption>
+<figcaption>Same staff, two supply chains, on purpose.</figcaption>
 </figure>
 <p>Those commercial API connections are configured with the sensible controls available to me: my inputs and outputs are not used for model training by default, Zero Data Retention is enabled where my account and endpoint support it, unnecessary storage is disabled, permissions are narrow, and the credentials remain under my control.</p>
 <p>That does not make the system risk-free. It does mean I know which provider receives the data, which model handles the work, what retention rules apply, and where the boundaries are. That lets me sleep just fine at night.</p>
@@ -101,7 +101,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         something sensitive, the identity of the vendor <em>is</em>
         part of the product.</p>
 <p>An AI model is no different. For most tasks, the cheapest
-        reputable option is fine — take the deal. For the two agents
+        reputable option is fine: take the deal. For the two agents
         holding my most private data, the vendor isn't a detail to
         optimize away. It's a boundary to hold. When Warren reasons
         about my retirement, I know exactly which company's model is
@@ -114,7 +114,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         up the cheap, fast, always-available default the rest of the
         fleet enjoys. The trusted models cost more per use. They're
         occasionally busy when the bargain pool has capacity to spare.
-        And the wall takes maintenance — it's a constraint you have to
+        And the wall takes maintenance; it's a constraint you have to
         keep choosing. It would be trivially easy to "temporarily" route
         Warren through the cheap pool on a busy afternoon and just…
         never switch it back. The discipline is in not doing that.</p>
@@ -123,8 +123,8 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         and in exchange I know exactly whose model is reading the
         categories I care most about. I'll take that trade every time.</p>
 <h2>Same instinct, one layer down</h2>
-<p>The mindset doesn't stop at model choice. The whole system —
-        every agent, the dashboard, all of it — is designed for local
+<p>The mindset doesn't stop at model choice. The whole system,
+        every agent, the dashboard, all of it, is designed for local
         access rather than public exposure. Sensitive financial inputs,
         legal material, health notes, and household logistics do not
         belong on a casual public endpoint. That boundary is not a
@@ -136,7 +136,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
           straight into any workplace conversation about AI: not every
           task should run on the same brain, and for the sensitive ones
           you should know and choose the brain. Companies are already
-          wrestling with this — frontier models are expensive, and the
+          wrestling with this: frontier models are expensive, and the
           instinct is to route everything toward whatever is the
           cheapest as adoption grows. That instinct is right for most
           tasks. It's wrong for the ones touching sensitive data, and
@@ -146,7 +146,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
           write, and I got to stress-test it on my own sensitive
           categories first.</p>
 </div>
-<p>One desk left. She isn't mine — she works for my wife, under my
+<p>One desk left. She isn't mine; she works for my wife, under my
         wife's own login, and my agents have no application-level access
         to her data. The finale is about the strangest and most human
         piece of the whole system: how her people and my people get
@@ -161,7 +161,7 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
         paper/simulated only.</div>
 <div class="about"><strong>About this series.</strong> I help
         manage and lead video operations for a living. None of this is
-        my day job, and I'm not a professional developer — every agent,
+        my day job, and I'm not a professional developer; every agent,
         dashboard, and guardrail here was built at home, nights and
         weekends, working with AI. That was the point: the best way I
         know to get fluent in a technology is to build something real
