@@ -168,56 +168,50 @@ nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;m
       </figure>
       <p>Flockletter is live. Real site, real logins, real newsletters: <a href="https://flockletter.frostyflamingosoftware.com/">flockletter.frostyflamingosoftware.com</a>. It's an open-source newsletter service for small businesses, the kind with a few hundred people who actually asked to hear from them and an owner who would rather be doing anything other than configuring email.</p>
       <p>A week ago it was a requirements document on a tray table.</p>
-      <p>I flew to Oklahoma City to visit my son and daughter-in-law. We had a great time. I also learned how much software fits into the dead time of a trip: the drive, the shuttle, the line, the train, the gate, the seat. None of those hours were going to be used for anything. Now they're an app.</p>
+      <p>I flew to Oklahoma City to visit my son and daughter-in-law. We had a great time. I also learned how much software fits into the gaps of a trip: the shuttle, the line, the train, the gate. My wife was with me the whole way, and she is a patient woman. The minutes I'd normally lose to scrolling my phone turned into an app.</p>
 
       <h2>The itinerary was the roadmap</h2>
-      <p>I did the research on the drive to the airport, by voice, arguing back and forth with ChatGPT about how newsletter services are actually put together. (Hands on the wheel. The AI did the typing.) Then the decisions started landing, roughly one per mode of transportation.</p>
+      <p>The research came first, by voice, going back and forth with ChatGPT about how newsletter services are actually put together. Then the decisions started landing, roughly one per mode of transportation.</p>
       <figure>
-        <svg aria-label="Six stops from the car to the overnight build, each with the product decision made there" role="img" viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-label="Five stops from the shuttle bus to the overnight build, each with the product decision made there" role="img" viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg">
           <g font-family="-apple-system,'Segoe UI',sans-serif">
-            <line class="d-rail" stroke-dasharray="6 5" stroke-width="1.5" x1="70" x2="750" y1="62" y2="62"></line>
+            <line class="d-rail" stroke-dasharray="6 5" stroke-width="1.5" x1="90" x2="730" y1="62" y2="62"></line>
             <g text-anchor="middle">
+              
               <g>
-                <circle class="d-card" cx="70" cy="62" r="24" stroke-width="2"></circle>
-                <text font-size="20" x="70" y="69">🚗</text>
-                <text class="d-ink" font-size="12.5" font-weight="700" x="70" y="112">The drive</text>
-                <text class="d-muted" font-size="11.5" x="70" y="132">Research,</text>
-                <text class="d-muted" font-size="11.5" x="70" y="148">out loud</text>
+                <circle class="d-card" cx="90" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="90" y="69">🚌</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="90" y="112">Shuttle bus</text>
+                <text class="d-muted" font-size="11.5" x="90" y="132">Logins:</text>
+                <text class="d-muted" font-size="11.5" x="90" y="148">Clerk</text>
               </g>
               <g>
-                <circle class="d-card" cx="206" cy="62" r="24" stroke-width="2"></circle>
-                <text font-size="20" x="206" y="69">🚌</text>
-                <text class="d-ink" font-size="12.5" font-weight="700" x="206" y="112">Shuttle bus</text>
-                <text class="d-muted" font-size="11.5" x="206" y="132">Logins:</text>
-                <text class="d-muted" font-size="11.5" x="206" y="148">Clerk</text>
+                <circle class="d-card" cx="250" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="250" y="69">🛂</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="250" y="112">Security line</text>
+                <text class="d-muted" font-size="11.5" x="250" y="132">Payments:</text>
+                <text class="d-muted" font-size="11.5" x="250" y="148">Stripe</text>
               </g>
               <g>
-                <circle class="d-card" cx="342" cy="62" r="24" stroke-width="2"></circle>
-                <text font-size="20" x="342" y="69">🛂</text>
-                <text class="d-ink" font-size="12.5" font-weight="700" x="342" y="112">Security line</text>
-                <text class="d-muted" font-size="11.5" x="342" y="132">Payments:</text>
-                <text class="d-muted" font-size="11.5" x="342" y="148">Stripe</text>
+                <circle class="d-card" cx="410" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="410" y="69">🚆</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="410" y="112">Terminal train</text>
+                <text class="d-muted" font-size="11.5" x="410" y="132">Mail engine:</text>
+                <text class="d-muted" font-size="11.5" x="410" y="148">Listmonk</text>
               </g>
               <g>
-                <circle class="d-card" cx="478" cy="62" r="24" stroke-width="2"></circle>
-                <text font-size="20" x="478" y="69">🚆</text>
-                <text class="d-ink" font-size="12.5" font-weight="700" x="478" y="112">Terminal train</text>
-                <text class="d-muted" font-size="11.5" x="478" y="132">Mail engine:</text>
-                <text class="d-muted" font-size="11.5" x="478" y="148">Listmonk</text>
+                <circle class="d-card" cx="570" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="570" y="69">✈️</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="570" y="112">The plane</text>
+                <text class="d-muted" font-size="11.5" x="570" y="132">Requirements done,</text>
+                <text class="d-muted" font-size="11.5" x="570" y="148">build started</text>
               </g>
               <g>
-                <circle class="d-card" cx="614" cy="62" r="24" stroke-width="2"></circle>
-                <text font-size="20" x="614" y="69">✈️</text>
-                <text class="d-ink" font-size="12.5" font-weight="700" x="614" y="112">The plane</text>
-                <text class="d-muted" font-size="11.5" x="614" y="132">Requirements done,</text>
-                <text class="d-muted" font-size="11.5" x="614" y="148">build started</text>
-              </g>
-              <g>
-                <circle class="d-card d-acc-s" cx="750" cy="62" r="24" stroke-width="2.5"></circle>
-                <text font-size="20" x="750" y="69">🌙</text>
-                <text class="d-ink" font-size="12.5" font-weight="700" x="750" y="112">Overnight</text>
-                <text class="d-muted" font-size="11.5" x="750" y="132">It codes,</text>
-                <text class="d-muted" font-size="11.5" x="750" y="148">I sleep</text>
+                <circle class="d-card d-acc-s" cx="730" cy="62" r="24" stroke-width="2.5"></circle>
+                <text font-size="20" x="730" y="69">🌙</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="730" y="112">Overnight</text>
+                <text class="d-muted" font-size="11.5" x="730" y="132">It codes,</text>
+                <text class="d-muted" font-size="11.5" x="730" y="148">I sleep</text>
               </g>
             </g>
             <text class="d-muted" font-size="12.5" font-weight="700" text-anchor="middle" x="410" y="212">Every decision was made standing up. The coding happened lying down.</text>
