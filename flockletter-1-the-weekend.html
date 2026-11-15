@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Flockletter was designed in an airport security line, coded overnight while I slept, and debugged at a Renaissance festival. It is also my third app, which is something I didn't have on my bingo card this year." name="description">
+    <meta content="The Flockletter Launch, Part 1: I went to see my son and came home with an app" property="og:title">
+    <meta content="Flockletter was designed in an airport security line, coded overnight while I slept, and debugged at a Renaissance festival. It is also my third app, which is something I didn't have on my bingo card this year." property="og:description">
+    <meta content="article" property="og:type">
+    <title>The Flockletter Launch, Part 1: I went to see my son and came home with an app</title>
+    <style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#d6409f}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038;--accent:#d6409f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box,.signup{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.45rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+svg{max-width:100%;height:auto;display:block}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img,.cover svg,.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img,.cover svg,.shot img{border-radius:10px}}
+
+.signup{display:grid;gap:.7rem;margin:1.4rem 0}
+.signup a{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:.8rem 1.1rem;text-decoration:none;font-weight:600;font-size:.95rem}
+.signup a span{display:block;font-weight:400;font-size:.84rem;color:var(--muted)}
+.d-card{fill:var(--card);stroke:var(--line)}
+.d-ink{fill:var(--ink)}
+.d-muted{fill:var(--muted)}
+.d-accent{fill:var(--accent)}
+.d-rail{stroke:var(--muted)}
+.d-acc-s{stroke:var(--accent)}
+
+.cards{display:grid;gap:.9rem;margin:2rem 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:1.05rem 1.2rem;color:var(--ink);text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.card .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card h2{font-size:1.12rem;margin:.25rem 0 .3rem;line-height:1.3}
+.card p{font-size:.92rem;color:var(--muted);margin:0}
+.box ul{margin:.2rem 0 0}
+.part[hidden]{display:none}
+.mini-signup{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.84rem;color:var(--muted);margin:1.6rem 0 0}
+</style>
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/images/flockletter-part-1-cover.png" property="og:image">
+    <meta content="The Flockletter Launch, Part 1 cover: I went to see my son and came home with an app" property="og:image:alt">
+    <meta content="1732" property="og:image:width">
+    <meta content="910" property="og:image:height">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/images/flockletter-part-1-cover.png" name="twitter:image">
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/flockletter-1-the-weekend.html" property="og:url">
+    <link href="https://alandmunro.github.io/the-staff-of-ten/flockletter-1-the-weekend.html" rel="canonical">
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="kicker">The Staff of Ten · Flockletter · Part 1 of 3</div>
+      <h1>I went to see my son and came home with an app</h1>
+      <p class="standfirst">Flockletter was designed in an airport security line, coded overnight while I slept, and debugged at a Renaissance festival. It is also my third app, which is something I didn't have on my bingo card this year.</p>
+      <div class="byline">Alan Munro · November 2026</div>
+      <figure class="cover">
+        <svg aria-label="Illustrated cover: a flight path from home to Oklahoma City, a list of product decisions made in transit, and a pink flamingo standing on an envelope" role="img" viewBox="0 0 866 454" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#0b1026"></stop>
+              <stop offset=".6" stop-color="#141a3c"></stop>
+              <stop offset="1" stop-color="#2a1236"></stop>
+            </linearGradient>
+            <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#ff5fa8" stop-opacity=".55"></stop>
+              <stop offset="1" stop-color="#ff5fa8" stop-opacity="0"></stop>
+            </radialGradient>
+            <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+              <circle cx="1.5" cy="1.5" r="1" fill="#6f86ff" opacity=".22"></circle>
+            </pattern>
+          </defs>
+          <rect width="866" height="454" fill="url(#sky)"></rect>
+          <rect width="866" height="454" fill="url(#dots)"></rect>
+          <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+            <text x="433" y="34" text-anchor="middle" fill="#f5b942" font-size="12" font-weight="700" letter-spacing="7">THE STAFF OF TEN</text>
+            <rect x="371" y="44" width="124" height="22" rx="4" fill="none" stroke="#8fa2ff" stroke-opacity=".6"></rect>
+            <text x="433" y="59" text-anchor="middle" fill="#cdd5ff" font-size="11" font-weight="700" letter-spacing="4">PART 1 OF 3</text>
+
+            <!-- left panel -->
+            <rect x="24" y="84" width="232" height="186" rx="10" fill="#0e1533" fill-opacity=".8" stroke="#4d63d8" stroke-opacity=".7"></rect>
+            <text x="40" y="108" fill="#7fb0ff" font-size="11.5" font-weight="700" letter-spacing="1.5">DECISIONS IN TRANSIT</text>
+            <g font-size="11.5" fill="#d7dcf5">
+              <text x="62" y="136">Shuttle bus</text><text x="240" y="136" text-anchor="end" fill="#9aa5d6">logins</text>
+              <text x="62" y="164">Security line</text><text x="240" y="164" text-anchor="end" fill="#9aa5d6">payments</text>
+              <text x="62" y="192">Terminal train</text><text x="240" y="192" text-anchor="end" fill="#9aa5d6">mail engine</text>
+              <text x="62" y="220">Gate</text><text x="240" y="220" text-anchor="end" fill="#9aa5d6">first build</text>
+              <text x="62" y="248">Overnight</text><text x="240" y="248" text-anchor="end" fill="#9aa5d6">the rest</text>
+            </g>
+            <g fill="none" stroke="#38d39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M41 132l4 4 7-8"></path><path d="M41 160l4 4 7-8"></path><path d="M41 188l4 4 7-8"></path><path d="M41 216l4 4 7-8"></path><path d="M41 244l4 4 7-8"></path>
+            </g>
+
+            <!-- right panel -->
+            <rect x="610" y="84" width="232" height="186" rx="10" fill="#1d0f2b" fill-opacity=".8" stroke="#ff5fa8" stroke-opacity=".7"></rect>
+            <text x="626" y="108" fill="#ff8cc0" font-size="11.5" font-weight="700" letter-spacing="1.5">BEFORE IT LEAVES</text>
+            <g font-size="11.5" fill="#f1d9e6">
+              <text x="626" y="136">Newsletter approved</text>
+              <text x="626" y="164">One guest unsubscribes</text>
+              <text x="626" y="192">List rechecked</text>
+              <text x="626" y="220">That guest</text>
+            </g>
+            <g font-size="9.5" font-weight="700" text-anchor="middle">
+              <rect x="778" y="123" width="52" height="18" rx="4" fill="none" stroke="#38d39f"></rect><text x="804" y="136" fill="#38d39f">READY</text>
+              <rect x="778" y="151" width="52" height="18" rx="4" fill="none" stroke="#f5b942"></rect><text x="804" y="164" fill="#f5b942">T-5 MIN</text>
+              <rect x="778" y="179" width="52" height="18" rx="4" fill="none" stroke="#38d39f"></rect><text x="804" y="192" fill="#38d39f">DONE</text>
+              <rect x="778" y="207" width="52" height="18" rx="4" fill="none" stroke="#ff8cc0"></rect><text x="804" y="220" fill="#ff8cc0">SKIPPED</text>
+            </g>
+            <text x="626" y="252" fill="#b99ab0" font-size="10.5">Everyone else: sent.</text>
+
+            <!-- flight arc -->
+            <path d="M300 250 Q433 80 566 250" fill="none" stroke="#8fa2ff" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"></path>
+            <circle cx="300" cy="250" r="5" fill="#8fa2ff"></circle>
+            <circle cx="566" cy="250" r="5" fill="#ff5fa8"></circle>
+            <text x="300" y="272" text-anchor="middle" fill="#cdd5ff" font-size="10.5" font-weight="700" letter-spacing="2">HOME</text>
+            <text x="566" y="272" text-anchor="middle" fill="#ffc2dc" font-size="10.5" font-weight="700" letter-spacing="2">OKC</text>
+            <g transform="translate(433 165) rotate(0)">
+              <path d="M-20 0 L14 -4 Q22 -2 22 0 Q22 2 14 4 Z M-4 -2 L-12 -16 L-6 -16 L6 -3 Z M-4 2 L-12 16 L-6 16 L6 3 Z M-18 -1 L-24 -8 L-20 -8 L-14 -1 Z" fill="#ffffff"></path>
+            </g>
+
+            <!-- envelope + flamingo -->
+            <circle cx="433" cy="252" r="84" fill="url(#glow)"></circle>
+            <g transform="translate(433 266) scale(.9)">
+              <rect x="-40" y="6" width="80" height="46" rx="5" fill="#fff7fb" stroke="#ff8cc0" stroke-width="1.5"></rect>
+              <path d="M-40 10 L0 34 L40 10" fill="none" stroke="#ff8cc0" stroke-width="1.5"></path>
+              <!-- legs: one standing, one tucked -->
+              <path d="M6 -24 L6 6 M6 6 L-1 6" fill="none" stroke="#ff8cc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M0 -24 L-9 -10 L3 -5" fill="none" stroke="#ff8cc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <!-- neck -->
+              <path d="M-10 -38 C-24 -46 -6 -58 -11 -70 C-14 -78 -24 -79 -26 -72" fill="none" stroke="#ff5fa8" stroke-width="6" stroke-linecap="round"></path>
+              <!-- body and tail -->
+              <path d="M-17 -35 C-17 -50 10 -54 25 -42 C31 -37 34 -31 37 -24 C28 -27 22 -24 14 -22 C2 -19 -13 -22 -17 -35 Z" fill="#ff5fa8"></path>
+              <path d="M-5 -39 C5 -46 19 -43 25 -33 C14 -30 3 -31 -5 -39 Z" fill="#e23d8b"></path>
+              <!-- head and beak -->
+              <circle cx="-25" cy="-72" r="6.5" fill="#ff5fa8"></circle>
+              <path d="M-30 -76 L-39 -73 C-42 -69 -41 -64 -37 -61 L-31 -68 Z" fill="#ffd9ea"></path>
+              <path d="M-41 -68 C-41 -65 -39 -62.5 -37 -61 L-34 -64.5 Z" fill="#20242a"></path>
+              <circle cx="-26" cy="-73.5" r="1.4" fill="#20242a"></circle>
+            </g>
+
+            <text x="433" y="368" text-anchor="middle" fill="#ffffff" font-size="34" font-weight="800" letter-spacing=".5">I WENT TO SEE MY SON</text>
+            <text x="433" y="406" text-anchor="middle" fill="#ffffff" font-size="34" font-weight="800" letter-spacing=".5">AND CAME HOME WITH AN APP</text>
+            <text x="433" y="432" text-anchor="middle" fill="#9fb0ff" font-size="12.5" letter-spacing="2">Flockletter, the launch, and one test worth telling a guest about.</text>
+          </g>
+        </svg>
+        
+      </figure>
+      <p>Flockletter is live. Real site, real logins, real newsletters: <a href="https://flockletter.frostyflamingosoftware.com/">flockletter.frostyflamingosoftware.com</a>. It's an open-source newsletter service for small businesses, the kind with a few hundred people who actually asked to hear from them and an owner who would rather be doing anything other than configuring email.</p>
+      <p>A week ago it was a requirements document on a tray table.</p>
+      <p>I flew to Oklahoma City to visit my son and daughter-in-law. We had a great time. I also learned how much software fits into the dead time of a trip: the drive, the shuttle, the line, the train, the gate, the seat. None of those hours were going to be used for anything. Now they're an app.</p>
+
+      <h2>The itinerary was the roadmap</h2>
+      <p>I did the research on the drive to the airport, by voice, arguing back and forth with ChatGPT about how newsletter services are actually put together. (Hands on the wheel. The AI did the typing.) Then the decisions started landing, roughly one per mode of transportation.</p>
+      <figure>
+        <svg aria-label="Six stops from the car to the overnight build, each with the product decision made there" role="img" viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg">
+          <g font-family="-apple-system,'Segoe UI',sans-serif">
+            <line class="d-rail" stroke-dasharray="6 5" stroke-width="1.5" x1="70" x2="750" y1="62" y2="62"></line>
+            <g text-anchor="middle">
+              <g>
+                <circle class="d-card" cx="70" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="70" y="69">🚗</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="70" y="112">The drive</text>
+                <text class="d-muted" font-size="11.5" x="70" y="132">Research,</text>
+                <text class="d-muted" font-size="11.5" x="70" y="148">out loud</text>
+              </g>
+              <g>
+                <circle class="d-card" cx="206" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="206" y="69">🚌</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="206" y="112">Shuttle bus</text>
+                <text class="d-muted" font-size="11.5" x="206" y="132">Logins:</text>
+                <text class="d-muted" font-size="11.5" x="206" y="148">Clerk</text>
+              </g>
+              <g>
+                <circle class="d-card" cx="342" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="342" y="69">🛂</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="342" y="112">Security line</text>
+                <text class="d-muted" font-size="11.5" x="342" y="132">Payments:</text>
+                <text class="d-muted" font-size="11.5" x="342" y="148">Stripe</text>
+              </g>
+              <g>
+                <circle class="d-card" cx="478" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="478" y="69">🚆</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="478" y="112">Terminal train</text>
+                <text class="d-muted" font-size="11.5" x="478" y="132">Mail engine:</text>
+                <text class="d-muted" font-size="11.5" x="478" y="148">Listmonk</text>
+              </g>
+              <g>
+                <circle class="d-card" cx="614" cy="62" r="24" stroke-width="2"></circle>
+                <text font-size="20" x="614" y="69">✈️</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="614" y="112">The plane</text>
+                <text class="d-muted" font-size="11.5" x="614" y="132">Requirements done,</text>
+                <text class="d-muted" font-size="11.5" x="614" y="148">build started</text>
+              </g>
+              <g>
+                <circle class="d-card d-acc-s" cx="750" cy="62" r="24" stroke-width="2.5"></circle>
+                <text font-size="20" x="750" y="69">🌙</text>
+                <text class="d-ink" font-size="12.5" font-weight="700" x="750" y="112">Overnight</text>
+                <text class="d-muted" font-size="11.5" x="750" y="132">It codes,</text>
+                <text class="d-muted" font-size="11.5" x="750" y="148">I sleep</text>
+              </g>
+            </g>
+            <text class="d-muted" font-size="12.5" font-weight="700" text-anchor="middle" x="410" y="212">Every decision was made standing up. The coding happened lying down.</text>
+          </g>
+        </svg>
+        <figcaption>The project plan, as dictated by the airport. The last stop is the one where I wasn't needed.</figcaption>
+      </figure>
+      <p>Who handles logins got settled on the shuttle bus. Who handles payments got settled in the security line, somewhere around the bins. Which open-source newsletter engine to build on top of got settled on the train to the concourse. I finished the requirements on the plane, spotty wifi and all, and the build had already started before we pushed back from the gate.</p>
+
+      <h2>Write it down or it didn't happen</h2>
+      <p>Here's the habit that made the rest possible. Every one of those decisions went into writing the moment it was made. Not in my head, not in a chat I'd have to scroll back through. In the project itself: a requirements document where every requirement has a number, and a decision log where every choice has a number, a date, and a note on what it replaced.</p>
+      <p>That sounds like paperwork, and it is. It's the same paperwork I'd want from a vendor at work. The difference is that this time the reader wasn't an auditor. The reader was the thing doing the building, and it reads everything, every time, without skimming.</p>
+
+      <h2>The night shift</h2>
+      <p>By the time I landed, ChatGPT was in full coding mode.</p>
+      <p>And did it code. It coded all night, and it finished up just in time for breakfast.</p>
+      <p>That wasn't luck, and it wasn't magic. With every decision from the commute memorialized, and a bit of tuning on my prompts, it never had to stop and ask what I meant. I'd already said so. So I went to bed, and the work kept going without me. I have managed night shifts before. This was the first one that didn't call.</p>
+      <div class="box">
+        <h3>Standing orders</h3>
+        <p style="margin:0 0 .3rem">The prompt tuning mostly turned into an instruction file that lives in the project. It grew over the week. A few of its rules, lightly paraphrased:</p>
+        <ul>
+          <li>Make reasonable decisions without checking in on routine ones.</li>
+          <li>Keep working while I'm away. Save the real questions and ask them together.</li>
+          <li>Anything that costs more than $25, stop and ask. No splitting a purchase to sneak under.</li>
+          <li>Record every decision, and the evidence for it.</li>
+          <li>Building something is not permission to turn it on. Real email and real charges each need their own yes from me.</li>
+        </ul>
+      </div>
+      <p>Read that list as a manager and it's familiar. It's a delegation memo: here's your authority, here's your spending limit, here's what you escalate. The AI part is new. The memo isn't.</p>
+
+      <h2>Debugging, with armor</h2>
+      <p>The debugging happened in daylight. Saturday I was at the Oklahoma City Renaissance festival, and between rounds at the combat arena, while grown men in armor caught their breath, I spent a few minutes with ChatGPT chasing a bug. By Sunday afternoon I could put together a newsletter with my own photos and rehearse exactly what would happen when it went out.</p>
+      <p>One week of hardening later, it's in production.</p>
+      <p>That's the weekend. But "ChatGPT built an app overnight" is the least interesting way to tell it, because most of what makes Flockletter work wasn't built at all. It was hired. <a href="flockletter-2-the-org-chart.html">That's Part 2.</a></p>
+      <p class="mini-signup"><strong>Want one of my newsletters?</strong> <a href="https://flockletter.frostyflamingosoftware.com/signup/FrostyFlamingoHospitality">Keystone condo updates</a> · <a href="https://flockletter.frostyflamingosoftware.com/signup/FrostyFlamingoApparel">Apparel product drops</a> · <a href="https://flockletter.frostyflamingosoftware.com/sign-up">Start your own</a></p>
+      <div class="notice"><strong>Personal project note.</strong> This series describes a personal project built on my own time, not my employer's work or advice. Flockletter is open source under AGPLv3; the code is on <a href="https://github.com/alandmunro/flockletter">GitHub</a>. Screens shown use sample data.</div>
+      <div class="cta">What decision are you still carrying in your head that an AI can't act on until you write it down?</div>
+      <div class="about"><strong>About this series.</strong> I help manage and lead video operations for a living. None of this is my day job, and I'm not a professional developer - every agent, dashboard, guardrail, and now app here was built at home (or in transit), nights and weekends, working with AI. That was the point: the best way I know to get fluent in a technology is to build something real with it.</div>
+      <nav class="series"><a href="flockletter.html">← Series home</a><a href="flockletter-2-the-org-chart.html">Part 2: The org chart →</a></nav>
+    </div>
+  </body>
+</html>

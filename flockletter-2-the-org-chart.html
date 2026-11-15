@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Nine desks, one building, and the secret to shipping a working service in a weekend: build only the part nobody else can build for you." name="description">
+    <meta content="The Flockletter Launch, Part 2: I didn't write a login system. I hired one." property="og:title">
+    <meta content="Nine desks, one building, and the secret to shipping a working service in a weekend: build only the part nobody else can build for you." property="og:description">
+    <meta content="article" property="og:type">
+    <title>The Flockletter Launch, Part 2: I didn't write a login system. I hired one.</title>
+    <style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#c2620a}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038;--accent:#c2620a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box,.signup{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.45rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+svg{max-width:100%;height:auto;display:block}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img,.cover svg,.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img,.cover svg,.shot img{border-radius:10px}}
+
+.signup{display:grid;gap:.7rem;margin:1.4rem 0}
+.signup a{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:.8rem 1.1rem;text-decoration:none;font-weight:600;font-size:.95rem}
+.signup a span{display:block;font-weight:400;font-size:.84rem;color:var(--muted)}
+.d-card{fill:var(--card);stroke:var(--line)}
+.d-ink{fill:var(--ink)}
+.d-muted{fill:var(--muted)}
+.d-accent{fill:var(--accent)}
+.d-rail{stroke:var(--muted)}
+.d-acc-s{stroke:var(--accent)}
+
+.cards{display:grid;gap:.9rem;margin:2rem 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:1.05rem 1.2rem;color:var(--ink);text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.card .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card h2{font-size:1.12rem;margin:.25rem 0 .3rem;line-height:1.3}
+.card p{font-size:.92rem;color:var(--muted);margin:0}
+.box ul{margin:.2rem 0 0}
+.part[hidden]{display:none}
+.mini-signup{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.84rem;color:var(--muted);margin:1.6rem 0 0}
+</style>
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/images/flockletter-part-2-cover.png" property="og:image">
+    <meta content="The Flockletter Launch, Part 2 cover: Flockletter's org chart" property="og:image:alt">
+    <meta content="1760" property="og:image:width">
+    <meta content="1062" property="og:image:height">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/images/flockletter-part-2-cover.png" name="twitter:image">
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/flockletter-2-the-org-chart.html" property="og:url">
+    <link href="https://alandmunro.github.io/the-staff-of-ten/flockletter-2-the-org-chart.html" rel="canonical">
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="kicker">The Staff of Ten · Flockletter · Part 2 of 3</div>
+      <h1>I didn't write a login system. I hired one.</h1>
+      <p class="standfirst">Nine desks, one building, and the secret to shipping a working service in a weekend: build only the part nobody else can build for you.</p>
+      <div class="byline">Alan Munro · November 2026</div>
+      <figure class="cover">
+        <svg aria-label="Flockletter's components drawn as an org chart: the workshop pushes code to GitHub, which deploys to staging first and then promotes the same build to production on Render. Production holds the web app, Listmonk, a worker, a PostgreSQL database and an API entrance. Cloudflare directs people to the app; Clerk checks logins, Stripe handles billing, and Resend delivers mail to inboxes and reports bounces back." role="img" viewBox="0 0 880 530" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="osky" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0b1026"></stop><stop offset=".6" stop-color="#141a3c"></stop><stop offset="1" stop-color="#2a1236"></stop></linearGradient>
+            <pattern id="odots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#6f86ff" opacity=".22"></circle></pattern>
+            <marker id="oarr" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3.5"><path d="M0 0 L7 3.5 L0 7 Z" fill="#cdd5ff"></path></marker>
+          </defs>
+          <rect width="880" height="530" fill="url(#osky)"></rect>
+          <rect width="880" height="530" fill="url(#odots)"></rect>
+          <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+            <text x="440" y="30" text-anchor="middle" fill="#f5b942" font-size="12" font-weight="700" letter-spacing="6">FLOCKLETTER · THE ORG CHART</text>
+            <text x="440" y="48" text-anchor="middle" fill="#9fb0ff" font-size="10.5" letter-spacing="1.5">Every desk has one job.</text>
+            <rect x="20" y="64" width="156" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#7fb0ff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="20" y="72" width="3.5" height="38" rx="1.75" fill="#7fb0ff"></rect><text x="34" y="98.0" font-size="19">🖥️</text><text x="64" y="88.0" fill="#ffffff" font-size="12.5" font-weight="700">The workshop</text><text x="64" y="104.0" fill="#a9b4e6" font-size="10.5">Mac + ChatGPT</text>
+            <path d="M176 91 H264" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="220" y="84">pushes code</text>
+            <rect x="265" y="59" width="310" height="64" rx="14" fill="#f5b942" opacity=".16"></rect><rect x="270" y="64" width="300" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#f5b942" stroke-opacity=".85" stroke-width="2"></rect><rect x="270" y="72" width="3.5" height="38" rx="1.75" fill="#f5b942"></rect><text x="284" y="98.0" font-size="19">🐙</text><text x="314" y="88.0" fill="#ffffff" font-size="12.5" font-weight="700">GitHub · chief of staff</text><text x="314" y="104.0" fill="#a9b4e6" font-size="10.5">code, test runs, the release button</text>
+            <path d="M570 91 H684" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="627" y="84">deploys here first</text>
+            <rect x="690" y="64" width="170" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#38d39f" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="690" y="72" width="3.5" height="38" rx="1.75" fill="#38d39f"></rect><text x="704" y="98.0" font-size="19">🧪</text><text x="734" y="88.0" fill="#ffffff" font-size="12.5" font-weight="700">Staging</text><text x="734" y="104.0" fill="#a9b4e6" font-size="10.5">Dress rehearsal</text>
+            <path d="M420 118 V150" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="start" x="430" y="139">then promotes the exact same build</text>
+            <rect x="214" y="156" width="412" height="322" rx="13" fill="#141a3c" fill-opacity=".55" stroke="#8fa2ff" stroke-opacity=".7" stroke-width="1.4" stroke-dasharray="6 5"></rect>
+            <text x="232" y="176" fill="#7fb0ff" font-size="10.5" font-weight="700" letter-spacing="1.6">RENDER · THE BUILDING · PRODUCTION</text>
+            <rect x="232" y="186" width="376" height="76" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#ff5fa8" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="232" y="194" width="3.5" height="60" rx="1.75" fill="#ff5fa8"></rect><text x="246" y="231.0" font-size="19">🌐</text><text x="276" y="212" fill="#ffffff" font-size="12.5" font-weight="700">The web app · front office</text><text x="276" y="228" fill="#a9b4e6" font-size="10.5">newsletter studio, signup pages,</text><text x="276" y="243" fill="#a9b4e6" font-size="10.5">unsubscribe links</text>
+            <rect x="232" y="276" width="180" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#7fb0ff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="232" y="284" width="3.5" height="38" rx="1.75" fill="#7fb0ff"></rect><text x="246" y="310.0" font-size="19">🖨️</text><text x="276" y="300.0" fill="#ffffff" font-size="12.5" font-weight="700">Listmonk</text><text x="276" y="316.0" fill="#a9b4e6" font-size="10.5">Print shop: builds it</text>
+            <rect x="428" y="276" width="180" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#b48cff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="428" y="284" width="3.5" height="38" rx="1.75" fill="#b48cff"></rect><text x="442" y="310.0" font-size="19">🌙</text><text x="472" y="300.0" fill="#ffffff" font-size="12.5" font-weight="700">Worker</text><text x="472" y="316.0" fill="#a9b4e6" font-size="10.5">Night shift: rechecks</text>
+            <rect x="232" y="344" width="376" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#38d39f" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="232" y="352" width="3.5" height="38" rx="1.75" fill="#38d39f"></rect><text x="246" y="378.0" font-size="19">🗄️</text><text x="276" y="368.0" fill="#ffffff" font-size="12.5" font-weight="700">PostgreSQL · records room</text><text x="276" y="384.0" fill="#a9b4e6" font-size="10.5">who said yes, who said stop, every approval</text>
+            <rect x="232" y="412" width="376" height="50" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#9aa5d6" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="232" y="420" width="3.5" height="34" rx="1.75" fill="#9aa5d6"></rect><text x="246" y="444.0" font-size="19">🚪</text><text x="276" y="434.0" fill="#ffffff" font-size="12.5" font-weight="700">API + MCP · side entrance</text><text x="276" y="450.0" fill="#a9b4e6" font-size="10.5">same rules as the front door</text>
+            <path d="M420 262 V338" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path>
+            <rect x="20" y="197" width="156" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#f59f42" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="20" y="205" width="3.5" height="38" rx="1.75" fill="#f59f42"></rect><text x="34" y="231.0" font-size="19">🧭</text><text x="64" y="221.0" fill="#ffffff" font-size="12.5" font-weight="700">Cloudflare</text><text x="64" y="237.0" fill="#a9b4e6" font-size="10.5">Switchboard: DNS</text>
+            <path d="M176 224 H226" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="196" y="217">finds</text>
+            <rect x="20" y="300" width="156" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#cdd5ff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="20" y="308" width="3.5" height="38" rx="1.75" fill="#cdd5ff"></rect><text x="34" y="334.0" font-size="19">👥</text><text x="64" y="324.0" fill="#ffffff" font-size="12.5" font-weight="700">Owners + readers</text><text x="64" y="340.0" fill="#a9b4e6" font-size="10.5">guests and shoppers</text>
+            <path d="M98 300 V257" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="start" x="104" y="282">asks the way</text>
+            <rect x="20" y="410" width="156" height="54" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#b48cff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="20" y="418" width="3.5" height="38" rx="1.75" fill="#b48cff"></rect><text x="34" y="444.0" font-size="19">🤖</text><text x="64" y="434.0" fill="#ffffff" font-size="12.5" font-weight="700">Scripts + agents</text><text x="64" y="450.0" fill="#a9b4e6" font-size="10.5">use the side door</text>
+            <path d="M176 437 H226" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="196" y="430">knocks</text>
+            <rect x="690" y="177" width="170" height="46" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#7fb0ff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="690" y="185" width="3.5" height="30" rx="1.75" fill="#7fb0ff"></rect><text x="704" y="207.0" font-size="19">🪪</text><text x="734" y="197.0" fill="#ffffff" font-size="12.5" font-weight="700">Clerk</text><text x="734" y="213.0" fill="#a9b4e6" font-size="10.5">Front desk: checks ID</text>
+            <rect x="690" y="229" width="170" height="46" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#b48cff" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="690" y="237" width="3.5" height="30" rx="1.75" fill="#b48cff"></rect><text x="704" y="259.0" font-size="19">💳</text><text x="734" y="249.0" fill="#ffffff" font-size="12.5" font-weight="700">Stripe</text><text x="734" y="265.0" fill="#a9b4e6" font-size="10.5">Accounts: plans, billing</text>
+            <path d="M608 200 H684" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="656" y="193">ID check</text>
+            <path d="M608 252 H684" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="656" y="245">billing</text>
+            <rect x="690" y="281" width="170" height="46" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#ff8cc0" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="690" y="289" width="3.5" height="30" rx="1.75" fill="#ff8cc0"></rect><text x="704" y="311.0" font-size="19">📮</text><text x="734" y="301.0" fill="#ffffff" font-size="12.5" font-weight="700">Resend</text><text x="734" y="317.0" fill="#a9b4e6" font-size="10.5">Mail room: delivers</text>
+            <path d="M608 295 H684" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="656" y="288">hands off</text>
+            <path d="M690 314 H614" fill="none" stroke="#8fa2ff" stroke-width="1.6" stroke-dasharray="4 4" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="middle" x="656" y="328">bounces back</text>
+            <path d="M775 327 V352" fill="none" stroke="#8fa2ff" stroke-width="1.6" marker-end="url(#oarr)"></path><text fill="#cdd5ff" font-size="9.5" text-anchor="start" x="783" y="344">delivers</text>
+            <rect x="690" y="358" width="170" height="46" rx="9" fill="#0e1533" fill-opacity=".88" stroke="#38d39f" stroke-opacity=".85" stroke-width="1.3"></rect><rect x="690" y="366" width="3.5" height="30" rx="1.75" fill="#38d39f"></rect><text x="704" y="388.0" font-size="19">📬</text><text x="734" y="378.0" fill="#ffffff" font-size="12.5" font-weight="700">An inbox</text><text x="734" y="394.0" fill="#a9b4e6" font-size="10.5">that asked for it</text>
+            <text x="440" y="508" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Passwords I have seen: 0.  Card numbers I have seen: 0.  That's the design.</text>
+          </g>
+        </svg>
+        <figcaption>Flockletter's org chart. The dashed box is the part that runs under my name; everyone outside it is a specialist I'd never try to replace.</figcaption>
+      </figure>
+      <h2>Two businesses and one pink bird</h2>
+      <p>First, why a newsletter app at all. Flockletter is the third app I've built with AI. The first two are called Cadence and Frosty Flamingo Apparel, and each one is getting its own episode, so that's all you get today. The only spoiler you need: one of them sells a hoodie, and I had no way to tell anybody the hoodie existed.</p>
+      <p>The other reason is one you've already met. If you read the original series, you know Frosty, the agent that helps run our short-term rental in Keystone, Colorado. Ski season is opening. There are past guests who would love an excuse to come back, and I had no polite, permission-based way to hand them one.</p>
+      <p>So Flockletter's job description wrote itself. Let someone sign up for the updates they want. Let me build a newsletter with the actual photos. Remember, precisely, who asked for what. The first issue went to the Keystone list.</p>
+      <p>Then I kept going, because building a newsletter app on a plane is my idea of a good time and I'm aware it isn't everyone's. Most shop owners just want to send the newsletter. So Flockletter is a hosted service too: sign up, add your photos, write your first issue, and once delivery is active on your plan, pick your audience and hit send. And because it's open source, anyone who does share my idea of a good time can read every line of it or run their own.</p>
+
+      <h2>The org chart, again</h2>
+      <p>Part 1 of the original series was an org chart, and it turns out an app is one too. I didn't write a login system, a payment system, or a mail server, and neither did ChatGPT. I hired for those desks. Scroll back up to the chart and here's who's sitting where.</p>
+      <ul>
+        <li><strong>GitHub, chief of staff.</strong> All the code lives there, every change runs the full test suite there, and nothing reaches production except through its release button.</li>
+        <li><strong>Render, the building.</strong> It hosts the web app, a background worker, and the database, once for staging and once for production, with separate logins and separate data.</li>
+        <li><strong>PostgreSQL, the records room.</strong> Who signed up for what, when, through which form, and who asked to stop. Every issue, every approval.</li>
+        <li><strong>Clerk, the front desk.</strong> It checks ID. I never see a password.</li>
+        <li><strong>Stripe, accounts.</strong> Plans and payments. I never see a card number.</li>
+        <li><strong>Listmonk, the print shop.</strong> The open-source engine from the terminal train. It assembles each newsletter.</li>
+        <li><strong>Resend, the mail room.</strong> It carries the mail out and reports back when an address bounces.</li>
+        <li><strong>Cloudflare, the switchboard.</strong> It runs the DNS, which is how a browser finds the site and how an inbox can tell the mail is really ours.</li>
+        <li><strong>The workshop.</strong> The Mac Studio at home and ChatGPT, where the code gets written before any of the above ever sees it.</li>
+      </ul>
+      <p>There's also a side entrance for scripts and AI agents, which answers to the same rules as the front door. An agent can't do anything through it that a person couldn't do through the website.</p>
+
+      <h2>What was left for me to build</h2>
+      <p>Take away everything rented and what's left is the middle of the chart, which is the actual product. It's almost entirely rules.</p>
+      <ul>
+        <li><strong>Permission is a record, not an assumption.</strong> Every subscriber has a paper trail: where they signed up, when, and for what. Signup forms confirm by email before anyone is added, by default.</li>
+        <li><strong>Each brand keeps its own list.</strong> Unsubscribing from hoodie news doesn't unsubscribe you from ski season, and signing up for one never signs you up for the other.</li>
+        <li><strong>A purchase is not consent.</strong> Buying a hoodie does not put you on a mailing list.</li>
+        <li><strong>Approval means this exact version.</strong> If the newsletter changes after I approve it, the approval doesn't carry over.</li>
+        <li><strong>Check again before it leaves.</strong> That one gets its own episode.</li>
+      </ul>
+      <div class="box">
+        <h3>Why rent the hard parts</h3>
+        <p style="margin:0">It's the same call I'd make at work. You don't build your own power plant to run a headend. Logins, payments and mail delivery are each somebody's full-time specialty, with security teams I can't match from a kitchen table. Renting them meant the weekend went into the only part that's actually mine: <strong>deciding what I actually want to build.</strong></p>
+      </div>
+      <p>Which brings me to the one rule I care about most, and the test that proves it. <a href="flockletter-3-the-test.html">That's Part 3.</a></p>
+      <p class="mini-signup"><strong>Want one of my newsletters?</strong> <a href="https://flockletter.frostyflamingosoftware.com/signup/FrostyFlamingoHospitality">Keystone condo updates</a> · <a href="https://flockletter.frostyflamingosoftware.com/signup/FrostyFlamingoApparel">Apparel product drops</a> · <a href="https://flockletter.frostyflamingosoftware.com/sign-up">Start your own</a></p>
+      <div class="notice"><strong>Personal project note.</strong> This series describes a personal project built on my own time, not my employer's work or advice. Flockletter is open source under AGPLv3; the code is on <a href="https://github.com/alandmunro/flockletter">GitHub</a>. Screens shown use sample data.</div>
+      <div class="cta">Which part of your project are you building that somebody already does for a living?</div>
+      <div class="about"><strong>About this series.</strong> I help manage and lead video operations for a living. None of this is my day job, and I'm not a professional developer - every agent, dashboard, guardrail, and now app here was built at home (or in transit), nights and weekends, working with AI. That was the point: the best way I know to get fluent in a technology is to build something real with it.</div>
+      <nav class="series"><a href="flockletter-1-the-weekend.html">← Part 1: The weekend</a><a href="flockletter-3-the-test.html">Part 3: The test →</a></nav>
+    </div>
+  </body>
+</html>

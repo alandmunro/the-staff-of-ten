@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="In July I wrote about running a staff of ten AI agents at home. This is what happened next: I went to visit my son, and came back with a newsletter service that's now live in production." name="description">
+    <meta content="The Staff of Ten: The Flockletter Launch" property="og:title">
+    <meta content="In July I wrote about running a staff of ten AI agents at home. This is what happened next: I went to visit my son, and came back with a newsletter service that's now live in production." property="og:description">
+    <meta content="article" property="og:type">
+    <title>The Staff of Ten: The Flockletter Launch</title>
+    <style>
+:root{--bg:#f7f6f3;--ink:#20242a;--muted:#69707a;--card:#ffffff;--line:#e3e1dc;--accent:#4f46e5}
+@media(prefers-color-scheme:dark){:root{--bg:#15171b;--ink:#e7e5e0;--muted:#98a0ab;--card:#1e2126;--line:#2c3038;--accent:#4f46e5}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 Charter,Georgia,serif}
+.wrap{max-width:43rem;margin:0 auto;padding:2.25rem 1.25rem 4rem}
+.kicker,h1,h2,h3,figcaption,.byline,nav.series,.about,.box,.signup{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:2.05rem;line-height:1.15;margin:.4rem 0 .6rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;line-height:1.3;margin:2.4rem 0 .6rem}
+.standfirst{font-size:1.14rem;color:var(--muted);margin:0 0 1rem}
+.byline{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+p{margin:0 0 1.1rem}
+ul{padding-left:1.2rem;margin:0 0 1.1rem}
+li{margin:.45rem 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+figure{margin:1.8rem 0}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+svg{max-width:100%;height:auto;display:block}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:1.05rem 1.2rem;margin:1.6rem 0;font-size:.95rem}
+.box h3{margin:0 0 .5rem;font-size:1.02rem}
+nav.series{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1.2rem}
+
+.notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:.9rem 1rem;margin:1.4rem 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.86rem;line-height:1.5;color:var(--muted)}
+.cta{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem;color:var(--muted)}
+@media print{body{background:white;color:#111;font-size:11.5pt}.wrap{max-width:none;padding:.25in}.card,.box,.zone,.lane,.tile{break-inside:avoid}a{color:#111;text-decoration:underline}nav.series{display:none}.about,.notice,.cta{font-size:9.5pt}svg{max-height:7in}}
+
+.cover{margin:1.25rem 0 2rem}
+.cover img,.cover svg,.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.16)}
+@media(max-width:560px){.cover{margin:1rem 0 1.5rem}.cover img,.cover svg,.shot img{border-radius:10px}}
+
+.signup{display:grid;gap:.7rem;margin:1.4rem 0}
+.signup a{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:.8rem 1.1rem;text-decoration:none;font-weight:600;font-size:.95rem}
+.signup a span{display:block;font-weight:400;font-size:.84rem;color:var(--muted)}
+.d-card{fill:var(--card);stroke:var(--line)}
+.d-ink{fill:var(--ink)}
+.d-muted{fill:var(--muted)}
+.d-accent{fill:var(--accent)}
+.d-rail{stroke:var(--muted)}
+.d-acc-s{stroke:var(--accent)}
+
+.cards{display:grid;gap:.9rem;margin:2rem 0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:1.05rem 1.2rem;color:var(--ink);text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.card .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card h2{font-size:1.12rem;margin:.25rem 0 .3rem;line-height:1.3}
+.card p{font-size:.92rem;color:var(--muted);margin:0}
+.box ul{margin:.2rem 0 0}
+.part[hidden]{display:none}
+.mini-signup{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.84rem;color:var(--muted);margin:1.6rem 0 0}
+</style>
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/images/flockletter-cover.png" property="og:image">
+    <meta content="The Flockletter Launch: three-part series cover" property="og:image:alt">
+    <meta content="1732" property="og:image:width">
+    <meta content="762" property="og:image:height">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/images/flockletter-cover.png" name="twitter:image">
+    <meta content="https://alandmunro.github.io/the-staff-of-ten/flockletter.html" property="og:url">
+    <link href="https://alandmunro.github.io/the-staff-of-ten/flockletter.html" rel="canonical">
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="kicker">The Staff of Ten · A three-part follow-up</div>
+      <h1>The Flockletter Launch</h1>
+      <p class="standfirst">In July I wrote about running a staff of ten AI agents at home. This is what happened next: I went to visit my son, and came back with a newsletter service that's now live in production.</p>
+      <div class="byline">Alan Munro · November 2026</div>
+      <figure class="cover">
+        <svg aria-label="Series cover: a pink flamingo standing on an envelope above the title The Flockletter Launch, with three parts listed: the weekend, the org chart, the test" role="img" viewBox="0 0 866 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hsky" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0b1026"></stop><stop offset=".6" stop-color="#141a3c"></stop><stop offset="1" stop-color="#2a1236"></stop></linearGradient>
+            <radialGradient id="hglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff5fa8" stop-opacity=".55"></stop><stop offset="1" stop-color="#ff5fa8" stop-opacity="0"></stop></radialGradient>
+            <pattern id="hdots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#6f86ff" opacity=".22"></circle></pattern>
+          </defs>
+          <rect width="866" height="380" fill="url(#hsky)"></rect>
+          <rect width="866" height="380" fill="url(#hdots)"></rect>
+          <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+            <text x="433" y="34" text-anchor="middle" fill="#f5b942" font-size="12" font-weight="700" letter-spacing="7">THE STAFF OF TEN</text>
+            <rect x="303" y="44" width="260" height="22" rx="4" fill="none" stroke="#8fa2ff" stroke-opacity=".6"></rect>
+            <text x="433" y="59" text-anchor="middle" fill="#cdd5ff" font-size="11" font-weight="700" letter-spacing="4">A THREE-PART FOLLOW-UP</text>
+            <circle cx="433" cy="160" r="84" fill="url(#hglow)"></circle>
+            <g transform="translate(433 172) scale(.9)">
+              <rect x="-40" y="6" width="80" height="46" rx="5" fill="#fff7fb" stroke="#ff8cc0" stroke-width="1.5"></rect>
+              <path d="M-40 10 L0 34 L40 10" fill="none" stroke="#ff8cc0" stroke-width="1.5"></path>
+              <!-- legs: one standing, one tucked -->
+              <path d="M6 -24 L6 6 M6 6 L-1 6" fill="none" stroke="#ff8cc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M0 -24 L-9 -10 L3 -5" fill="none" stroke="#ff8cc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <!-- neck -->
+              <path d="M-10 -38 C-24 -46 -6 -58 -11 -70 C-14 -78 -24 -79 -26 -72" fill="none" stroke="#ff5fa8" stroke-width="6" stroke-linecap="round"></path>
+              <!-- body and tail -->
+              <path d="M-17 -35 C-17 -50 10 -54 25 -42 C31 -37 34 -31 37 -24 C28 -27 22 -24 14 -22 C2 -19 -13 -22 -17 -35 Z" fill="#ff5fa8"></path>
+              <path d="M-5 -39 C5 -46 19 -43 25 -33 C14 -30 3 -31 -5 -39 Z" fill="#e23d8b"></path>
+              <!-- head and beak -->
+              <circle cx="-25" cy="-72" r="6.5" fill="#ff5fa8"></circle>
+              <path d="M-30 -76 L-39 -73 C-42 -69 -41 -64 -37 -61 L-31 -68 Z" fill="#ffd9ea"></path>
+              <path d="M-41 -68 C-41 -65 -39 -62.5 -37 -61 L-34 -64.5 Z" fill="#20242a"></path>
+              <circle cx="-26" cy="-73.5" r="1.4" fill="#20242a"></circle>
+            </g>
+            <text x="433" y="278" text-anchor="middle" fill="#ffffff" font-size="36" font-weight="800" letter-spacing="1">THE FLOCKLETTER LAUNCH</text>
+            <text x="433" y="302" text-anchor="middle" fill="#9fb0ff" font-size="12.5" letter-spacing="2">A weekend trip, nine hired desks, and one test worth telling a guest about.</text>
+            <rect x="133" y="318" width="190" height="34" rx="8" fill="#0e1533" fill-opacity=".85" stroke="#ff8cc0" stroke-opacity=".85"></rect><text x="228.0" y="340" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" letter-spacing="1.5"><tspan fill="#ff8cc0">1</tspan>  THE WEEKEND</text><rect x="338" y="318" width="190" height="34" rx="8" fill="#0e1533" fill-opacity=".85" stroke="#f5b942" stroke-opacity=".85"></rect><text x="433.0" y="340" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" letter-spacing="1.5"><tspan fill="#f5b942">2</tspan>  THE ORG CHART</text><rect x="543" y="318" width="190" height="34" rx="8" fill="#0e1533" fill-opacity=".85" stroke="#38d39f" stroke-opacity=".85"></rect><text x="638.0" y="340" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" letter-spacing="1.5"><tspan fill="#38d39f">3</tspan>  THE TEST</text>
+          </g>
+        </svg>
+        
+      </figure>
+      <p>Flockletter is live at <a href="https://flockletter.frostyflamingosoftware.com/">flockletter.frostyflamingosoftware.com</a>. It's an open-source newsletter service for small businesses, and it's the third app I've built with AI. The first two get their own series later. This one gets three parts now, because it went from a requirements document on a tray table to production in about a week, and the how is more useful than the what.</p>
+      <p>If you only read one, read Part 3. It's the one I'd tell a former guest about.</p>
+      <div class="cards">
+        <a class="card" href="flockletter-1-the-weekend.html" style="border-left-color:#d6409f"><span class="tag">Part 1 · The weekend</span><h2>I went to see my son and came home with an app</h2><p>Decisions made on a shuttle bus, in a security line and on a terminal train, and the night ChatGPT coded while I slept.</p></a>
+        <a class="card" href="flockletter-2-the-org-chart.html" style="border-left-color:#c2620a"><span class="tag">Part 2 · The org chart</span><h2>I didn't write a login system. I hired one.</h2><p>GitHub, Render, Clerk, Stripe, Resend, Cloudflare and friends: every desk in the building, and the one part I had to build myself.</p></a>
+        <a class="card" href="flockletter-3-the-test.html" style="border-left-color:#0a8f5b"><span class="tag">Part 3 · The test</span><h2>Five minutes before it goes out</h2><p>The unsubscribe race, how a build earns its way into production, and what's next.</p></a>
+      </div>
+      <div class="notice"><strong>Personal project note.</strong> This series describes a personal project built on my own time, not my employer's work or advice. Flockletter is open source under AGPLv3; the code is on <a href="https://github.com/alandmunro/flockletter">GitHub</a>. Screens shown use sample data.</div>
+      <div class="cta"><strong>New here?</strong> The original six-part series is at <a href="https://alandmunro.github.io/the-staff-of-ten/">The Staff of Ten</a>. It explains who Frosty is and why there's a flamingo on everything.</div>
+      <div class="about"><strong>About this series.</strong> I help manage and lead video operations for a living. None of this is my day job, and I'm not a professional developer - every agent, dashboard, guardrail, and now app here was built at home (or in transit), nights and weekends, working with AI. That was the point: the best way I know to get fluent in a technology is to build something real with it.</div>
+    </div>
+  </body>
+</html>
